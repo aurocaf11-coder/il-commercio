@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFM Notes Hub - Schemi & Guide per Studenti</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f5f3ff',  // Soft Lilac Tint
+                            100: '#ede9fe', // Light Lavender
+                            200: '#ddd6fe', // Soft Violet / Lavender
+                            300: '#c4b5fd',
+                            400: '#a78bfa',
+                            500: '#8b5cf6', // Bright Violet
+                            600: '#7c3aed', // Deep Vivid Purple
+                            700: '#6d28d9', // Rich Dark Violet
+                            800: '#5b21b6',
+                            900: '#4c1d95', // Deep Plum
+                        },
+                        accent: {
+                            50: '#faf5ff',
+                            100: '#f3e8ff', // Very light lilac
+                            500: '#a855f7',
+                            600: '#9333ea',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.90);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f5f3ff;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #ddd6fe;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-purple-50/40 text-slate-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- NAVIGATION BAR -->
+    <header class="sticky top-0 z-40 glass border-b border-purple-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" onclick="switchTab('home')" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-700 via-brand-600 to-brand-400 flex items-center justify-center text-white shadow-md shadow-brand-500/30 group-hover:scale-105 transition-transform">
+                    <i data-lucide="book-open-check" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <span class="font-heading font-bold text-xl text-slate-900 tracking-tight block leading-none">AFM Notes<span class="text-brand-600">.</span></span>
+                    <span class="text-xs text-brand-700 font-medium">Content & Schemi Digitali</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-1 bg-brand-50/80 p-1.5 rounded-full border border-purple-100">
+                <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-5 py-2 rounded-full text-sm font-semibold transition-all">Home</button>
+                <button onclick="switchTab('shop')" id="nav-shop" class="nav-btn px-5 py-2 rounded-full text-sm font-medium text-slate-600 hover:text-brand-700 transition-all">Shop Schemi</button>
+                <button onclick="switchTab('blog')" id="nav-blog" class="nav-btn px-5 py-2 rounded-full text-sm font-medium text-slate-600 hover:text-brand-700 transition-all">Blog & Guide</button>
+                <button onclick="switchTab('about')" id="nav-about" class="nav-btn px-5 py-2 rounded-full text-sm font-medium text-slate-600 hover:text-brand-700 transition-all">Chi Sono</button>
+                <button onclick="switchTab('contact')" id="nav-contact" class="nav-btn px-5 py-2 rounded-full text-sm font-medium text-slate-600 hover:text-brand-700 transition-all">Contatti</button>
+            </nav>
+
+            <!-- Actions / Cart Button -->
+            <div class="flex items-center gap-3">
+                <button onclick="toggleCartModal()" class="relative p-2.5 rounded-xl bg-white border border-purple-100 text-slate-700 hover:bg-brand-50 transition-colors shadow-sm">
+                    <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-700"></i>
+                    <span id="cart-badge" class="hidden absolute -top-1.5 -right-1.5 bg-brand-600 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-md animate-pulse">0</span>
+                </button>
+
+                <!-- Mobile Menu Toggle Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-xl bg-white border border-purple-100 text-slate-700">
+                    <i data-lucide="menu" id="menu-icon-open" class="w-5 h-5"></i>
+                    <i data-lucide="x" id="menu-icon-close" class="w-5 h-5 hidden"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-purple-100 bg-white px-4 pt-2 pb-6 space-y-2">
+            <button onclick="switchTab('home'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-brand-50">Home</button>
+            <button onclick="switchTab('shop'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-brand-50">Shop Schemi PDF</button>
+            <button onclick="switchTab('blog'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-brand-50">Blog & Guide di Studio</button>
+            <button onclick="switchTab('about'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-brand-50">Chi Sono</button>
+            <button onclick="switchTab('contact'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-brand-50">Contatti / Schemi Su Misura</button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINERS -->
+    <main class="flex-grow">
+
+        <!-- ================= PAGE 1: HOME ================= -->
+        <div id="page-home" class="page-content space-y-16 pb-16">
+            <!-- Hero Section -->
+            <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-gradient-to-b from-brand-100/60 via-purple-50/30 to-transparent">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="grid lg:grid-cols-12 gap-12 items-center">
+                        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-purple-200 text-brand-700 text-xs font-semibold uppercase tracking-wider shadow-sm">
+                                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-brand-500"></i> Per Studenti AFM (Istituto Tecnico Economico)
+                            </div>
+                            <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight">
+                                Schemi chiari e guide pratiche per superare l'AFM <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-700 via-brand-600 to-brand-400">senza impazzire.</span>
+                            </h1>
+                            <p class="text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                                Mappe concettuali ad alta efficacia, formule di Economia Aziendale, codici di Diritto e appunti d'Informatica creati da chi vive la scuola ogni giorno.
+                            </p>
+                            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                                <button onclick="switchTab('shop')" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold shadow-lg shadow-brand-600/30 transition-all flex items-center justify-center gap-2 group">
+                                    Esplora i Pacchetti Schemi
+                                    <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                                </button>
+                                <button onclick="openBlogArticle('art-1')" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-white border border-purple-200 text-brand-800 font-semibold hover:bg-brand-50/50 transition-all flex items-center justify-center gap-2 shadow-sm">
+                                    <i data-lucide="book-open" class="w-4 h-4 text-brand-600"></i> Leggi la Guida Gratuita
+                                </button>
+                            </div>
+                            
+                            <!-- Trust badges -->
+                            <div class="pt-6 border-t border-purple-100 flex items-center justify-center lg:justify-start gap-8 text-xs font-medium text-slate-500">
+                                <div class="flex items-center gap-1.5">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600"></i> Download PDF Immediato
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600"></i> Aggiornato al Programma 2026
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hero Graphic / Mockup -->
+                        <div class="lg:col-span-5 relative">
+                            <div class="relative mx-auto max-w-md lg:max-w-none">
+                                <div class="absolute -top-6 -left-6 w-72 h-72 bg-brand-300/30 rounded-full blur-3xl"></div>
+                                <div class="relative bg-white rounded-2xl shadow-xl p-6 border border-purple-100 space-y-4 transform hover:-translate-y-1 transition-transform duration-300">
+                                    <div class="flex items-center justify-between pb-4 border-b border-purple-50">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-10 h-10 rounded-lg bg-brand-100 text-brand-700 flex items-center justify-center font-bold">
+                                                PDF
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-900 text-sm">Kit Completo 4° Anno AFM</h4>
+                                                <p class="text-xs text-brand-600 font-medium">Economia Aziendale + Diritto</p>
+                                            </div>
+                                        </div>
+                                        <span class="text-brand-700 font-extrabold text-lg">€ 4,99</span>
+                                    </div>
+                                    <div class="space-y-2 text-xs text-slate-600">
+                                        <div class="flex items-center gap-2 bg-brand-50/60 p-2.5 rounded-lg border border-purple-50">
+                                            <i data-lucide="file-text" class="w-4 h-4 text-brand-600"></i>
+                                            <span>Mappe concettuali Scrittura Doppia & Bilancio</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 bg-brand-50/60 p-2.5 rounded-lg border border-purple-50">
+                                            <i data-lucide="file-text" class="w-4 h-4 text-brand-600"></i>
+                                            <span>Schemi Diritto Pubblico e Fiscale</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 bg-brand-50/60 p-2.5 rounded-lg border border-purple-50">
+                                            <i data-lucide="file-text" class="w-4 h-4 text-brand-600"></i>
+                                            <span>Esercizi svolti passo-passo</span>
+                                        </div>
+                                    </div>
+                                    <button onclick="addToCart('prod-1')" class="w-full py-3 bg-brand-700 hover:bg-brand-800 text-white font-semibold text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                                        <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
+                                        Aggiungi al Carrello
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Products -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+                    <div>
+                        <h2 class="font-heading text-2xl sm:text-3xl font-bold text-slate-900">Gli Schemi più Venduti</h2>
+                        <p class="text-slate-600 text-sm mt-1">Sintesi visive pronte per la stampa o da consultare su iPad e Tablet.</p>
+                    </div>
+                    <button onclick="switchTab('shop')" class="mt-4 md:mt-0 text-brand-700 hover:text-brand-800 font-semibold text-sm flex items-center gap-1">
+                        Vedi tutti i prodotti <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+                
+                <div id="featured-products-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Dynamic rendering via JS -->
+                </div>
+            </section>
+
+            <!-- Latest Blog Articles Preview -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-gradient-to-br from-brand-900 via-brand-800 to-purple-950 rounded-3xl p-8 sm:p-12 text-white shadow-xl relative overflow-hidden">
+                    <div class="relative z-10 max-w-3xl">
+                        <span class="inline-block px-3 py-1 rounded-md bg-white/10 text-purple-200 border border-white/20 text-xs font-semibold uppercase mb-4 backdrop-blur-sm">
+                            Guida del Mese
+                        </span>
+                        <h2 class="font-heading text-2xl sm:text-4xl font-bold mb-4">Come capire la Partita Doppia e il Bilancio d'Esercizio senza impazzire</h2>
+                        <p class="text-purple-100 mb-6 text-sm sm:text-base leading-relaxed">
+                            Hai difficoltà a bilanciare il DARE e l'AVVERE? Ti spieghiamo i concetti chiave con un metodo visivo semplice, prima di passare agli schemi avanzati.
+                        </p>
+                        <button onclick="openBlogArticle('art-1')" class="px-6 py-3 bg-white text-brand-900 rounded-xl font-bold hover:bg-brand-50 transition-colors inline-flex items-center gap-2 shadow-lg">
+                            Leggi l'Articolo Integrale
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-brand-700"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE 2: SHOP ================= -->
+        <div id="page-shop" class="page-content hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <h1 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900">Shop Schemi Digitali</h1>
+                <p class="text-slate-600 text-sm">Scarica istantaneamente i file PDF formattati e pronti per essere studiati o stampati.</p>
+            </div>
+
+            <!-- Subject Category Filters -->
+            <div class="flex flex-wrap items-center justify-center gap-2 pt-2">
+                <button onclick="filterShop('all')" class="shop-filter-btn px-4 py-2 rounded-xl text-sm font-semibold bg-brand-600 text-white shadow-sm" data-cat="all">Tutti</button>
+                <button onclick="filterShop('eco')" class="shop-filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="eco">Economia Aziendale</button>
+                <button onclick="filterShop('diritto')" class="shop-filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="diritto">Diritto & Economia Politica</button>
+                <button onclick="filterShop('info')" class="shop-filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="info">Informatica & Tech</button>
+                <button onclick="filterShop('metodo')" class="shop-filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="metodo">Metodo di Studio</button>
+            </div>
+
+            <!-- Shop Products Grid -->
+            <div id="shop-products-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
+                <!-- Dynamic insertion -->
+            </div>
+        </div>
+
+        <!-- ================= PAGE 3: BLOG / GUIDE ================= -->
+        <div id="page-blog" class="page-content hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+            <!-- Article List Mode -->
+            <div id="blog-list-view" class="space-y-8">
+                <div class="text-center max-w-2xl mx-auto space-y-2">
+                    <h1 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900">Blog & Guide Pratiche</h1>
+                    <p class="text-slate-600 text-sm">Spiegazioni semplici, consigli di memoria visiva e trucchi per le verifiche.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Blog Card 1 -->
+                    <article class="bg-white rounded-2xl border border-purple-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                        <div class="h-48 bg-gradient-to-r from-brand-700 to-brand-500 p-6 text-white flex flex-col justify-between">
+                            <span class="self-start px-2.5 py-1 rounded-md bg-white/20 text-xs font-semibold backdrop-blur-md">Economia Aziendale</span>
+                            <i data-lucide="calculator" class="w-10 h-10 opacity-80"></i>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">
+                                    Come capire la Partita Doppia e il Bilancio senza impazzire
+                                </h3>
+                                <p class="text-slate-600 text-xs leading-relaxed line-clamp-3">
+                                    Analizziamo le regole auree del DARE e dell'AVVERE, la differenza tra aspetti finanziari ed economici ed esempi pratici.
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-purple-50 flex items-center justify-between">
+                                <span class="text-xs text-slate-400">Lettura: 5 min</span>
+                                <button onclick="openBlogArticle('art-1')" class="text-brand-600 font-semibold text-xs flex items-center gap-1 hover:underline">
+                                    Leggi guida <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Card 2 -->
+                    <article class="bg-white rounded-2xl border border-purple-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                        <div class="h-48 bg-gradient-to-r from-brand-800 to-purple-600 p-6 text-white flex flex-col justify-between">
+                            <span class="self-start px-2.5 py-1 rounded-md bg-white/20 text-xs font-semibold backdrop-blur-md">Diritto</span>
+                            <i data-lucide="scale" class="w-10 h-10 opacity-80"></i>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">
+                                    I contratti commerciali più chiesti nei compiti in classe
+                                </h3>
+                                <p class="text-slate-600 text-xs leading-relaxed line-clamp-3">
+                                    Compravendita, locazione, leasing e mandato. Come ricordarsi clausole ed obblighi delle parti senza memoria meccanica.
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-purple-50 flex items-center justify-between">
+                                <span class="text-xs text-slate-400">Lettura: 4 min</span>
+                                <button onclick="openBlogArticle('art-2')" class="text-brand-600 font-semibold text-xs flex items-center gap-1 hover:underline">
+                                    Leggi guida <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Card 3 -->
+                    <article class="bg-white rounded-2xl border border-purple-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                        <div class="h-48 bg-gradient-to-r from-purple-700 to-brand-400 p-6 text-white flex flex-col justify-between">
+                            <span class="self-start px-2.5 py-1 rounded-md bg-white/20 text-xs font-semibold backdrop-blur-md">Metodo di Studio</span>
+                            <i data-lucide="brain" class="w-10 h-10 opacity-80"></i>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">
+                                    Come strutturare mappe concettuali per materie economiche
+                                </h3>
+                                <p class="text-slate-600 text-xs leading-relaxed line-clamp-3">
+                                    I trucchi per sintetizzare un capitolo di 30 pagine in una singola mappa visiva a colori.
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-purple-50 flex items-center justify-between">
+                                <span class="text-xs text-slate-400">Lettura: 6 min</span>
+                                <button onclick="openBlogArticle('art-3')" class="text-brand-600 font-semibold text-xs flex items-center gap-1 hover:underline">
+                                    Leggi guida <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Single Article Reading View -->
+            <div id="blog-single-view" class="hidden max-w-3xl mx-auto space-y-8 bg-white p-6 sm:p-10 rounded-2xl border border-purple-100 shadow-sm">
+                <button onclick="closeBlogArticle()" class="text-slate-500 hover:text-brand-700 text-sm font-semibold flex items-center gap-2 mb-4">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i> Torna a tutti gli articoli
+                </button>
+
+                <div class="space-y-4 border-b border-purple-50 pb-6">
+                    <span class="px-3 py-1 rounded-md bg-brand-50 text-brand-700 text-xs font-semibold uppercase border border-purple-100">Economia Aziendale</span>
+                    <h1 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900">Come capire la Partita Doppia e il Bilancio d'Esercizio senza impazzire</h1>
+                    <div class="flex items-center gap-4 text-xs text-slate-500">
+                        <span>Di: Martina (Studente AFM)</span>
+                        <span>•</span>
+                        <span>Tempo di lettura: 5 min</span>
+                    </div>
+                </div>
+
+                <!-- Article Body -->
+                <div class="prose prose-slate max-w-none text-slate-700 space-y-6 leading-relaxed text-sm sm:text-base">
+                    <p class="text-lg text-slate-600 font-medium">
+                        Se fai il terzo o quarto anno dell'Istituto Tecnico Economico (AFM), ti sarai scontrato almeno una volta con la Partita Doppia. Molti cercano di imparare i conti a memoria, ma questo è il modo più veloce per sbagliare la verifica.
+                    </p>
+
+                    <h3 class="font-heading font-bold text-xl text-slate-900 pt-2">1. La regola fondamentale: Ogni operazione ha due facce</h3>
+                    <p>
+                        Pensa a qualsiasi operazione aziendale come ad uno scambio. Se compri delle merci per 1.000 €:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <td><strong>Aspetto Finanziario:</strong> Hai un'uscita di denaro (o un debito verso fornitori).</td>
+                        <td><strong>Aspetto Economico:</strong> Hai sostenuto un costo per l'acquisto di merci.</td>
+                    </ul>
+
+                    <div class="bg-brand-50 border-l-4 border-brand-500 p-4 rounded-r-lg text-brand-900 text-sm">
+                        <strong>Trucco rapido per il DARE / AVERE:</strong><br>
+                        • Variazioni Finanziarie Positive (Entrate di cassa, +Crediti) vanno sempre in <strong>DARE</strong>.<br>
+                        • Variazioni Finanziarie Negative (Uscite di cassa, +Debiti) vanno sempre in <strong>AVERE</strong>.
+                    </div>
+
+                    <h3 class="font-heading font-bold text-xl text-slate-900 pt-2">2. Il passaggio dalle Scritture al Bilancio</h3>
+                    <p>
+                        A fine anno, tutti i conti accesi ai costi e ricavi confluiscono nel <strong>Conto Economico</strong>, mentre i conti finanziari e patrimoniali vanno nello <strong>Stato Patrimoniale</strong>.
+                    </p>
+
+                    <!-- INTEGRATED PRODUCT BUY-BOX IN ARTICLE -->
+                    <div class="my-8 bg-gradient-to-br from-brand-50 via-purple-50 to-white border border-brand-200 rounded-2xl p-6 sm:p-8 space-y-4 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+                        <div class="space-y-2">
+                            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-600 text-white text-xs font-bold">
+                                <i data-lucide="zap" class="w-3 h-3"></i> Ripasso Rapido
+                            </div>
+                            <h4 class="font-heading font-bold text-slate-900 text-lg sm:text-xl">Vuoi ripassare tutto il programma con schemi già pronti?</h4>
+                            <p class="text-xs text-slate-600 max-w-md">
+                                Scarica il <strong>Pacchetto Schemi Economia 4° Anno</strong>: 18 pagine di schemi visivi lilla e viola, regole DARE/AVERE e bilancio d'esercizio pronti da stampare.
+                            </p>
+                        </div>
+                        <div class="flex-shrink-0 space-y-2 w-full sm:w-auto">
+                            <button onclick="addToCart('prod-1')" class="w-full sm:w-auto px-6 py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                                <i data-lucide="download" class="w-4 h-4"></i>
+                                Scarica il Pacchetto a 4,99 €
+                            </button>
+                            <p class="text-center text-[10px] text-slate-500">Download immediato in formato PDF</p>
+                        </div>
+                    </div>
+
+                    <h3 class="font-heading font-bold text-xl text-slate-900 pt-2">Conclusione</h3>
+                    <p>
+                        Non disperare! Una volta compresa la logica duale della Partita Doppia, la contabilità diventa come un puzzle logico. Continua ad esercitarti con casi pratici reali.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 4: CHI SONO ================= -->
+        <div id="page-about" class="page-content hidden max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+            <div class="bg-white rounded-3xl border border-purple-100 p-8 sm:p-12 shadow-sm grid md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="relative">
+                        <div class="w-48 h-48 sm:w-64 sm:h-64 rounded-2xl bg-gradient-to-tr from-brand-600 via-brand-500 to-purple-300 p-1.5 shadow-xl">
+                            <div class="w-full h-full bg-brand-50/50 rounded-xl overflow-hidden flex items-center justify-center text-slate-400 font-bold border border-purple-100">
+                                <div class="text-center p-4">
+                                    <i data-lucide="user" class="w-16 h-16 mx-auto text-brand-600 mb-2"></i>
+                                    <span class="text-slate-800 font-heading text-lg font-bold">Martina</span>
+                                    <p class="text-xs text-brand-700 font-medium">Studentessa 4° AFM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-7 space-y-4">
+                    <span class="px-3 py-1 rounded-md bg-brand-50 text-brand-700 text-xs font-semibold uppercase border border-purple-100">La mia storia</span>
+                    <h1 class="font-heading text-3xl font-bold text-slate-900">Ciao, sono Martina! 👋</h1>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Frequento il quarto anno dell'Istituto Tecnico Economico (AFM). Quando ho iniziato il triennio, mi sono resa conto di quanto fossero prolissi e complessi i libri di testo di Economia e Diritto.
+                    </p>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Ho iniziato così a riassumere ogni capitolo trasformando le parole in <strong>mappe concettuali ad alto impatto visivo</strong> con sfumature lilla e viola, schematizzando articoli di codice e formule di bilancio. I miei compagni di classe hanno iniziato a chiedermeli prima di ogni verifica... ed è nato questo progetto!
+                    </p>
+                    <div class="pt-4 grid grid-cols-2 gap-4">
+                        <div class="p-4 rounded-xl bg-brand-50/50 border border-purple-100">
+                            <h4 class="font-bold text-brand-700 text-2xl font-heading">100%</h4>
+                            <p class="text-xs text-slate-500">Orientato al programma AFM</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-brand-50/50 border border-purple-100">
+                            <h4 class="font-bold text-brand-700 text-2xl font-heading">PDF</h4>
+                            <p class="text-xs text-slate-500">Pronti da stampare o annotare</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 5: CONTATTI ================= -->
+        <div id="page-contact" class="page-content hidden max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
+            <div class="text-center space-y-2">
+                <h1 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900">Hai domande o vuoi schemi personalizzati?</h1>
+                <p class="text-slate-600 text-sm">Scrivimi per informazioni sui pacchetti o per richiedere appunti su un argomento specifico.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-purple-100 p-6 sm:p-10 shadow-sm">
+                <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-6">
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 uppercase mb-2">Nome e Cognome</label>
+                            <input type="text" required placeholder="Es. Marco Rossi" class="w-full px-4 py-3 rounded-xl border border-purple-100 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm bg-purple-50/20">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 uppercase mb-2">Email</label>
+                            <input type="email" required placeholder="tua@email.it" class="w-full px-4 py-3 rounded-xl border border-purple-100 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm bg-purple-50/20">
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 uppercase mb-2">Anno scolastico</label>
+                            <select class="w-full px-4 py-3 rounded-xl border border-purple-100 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm bg-purple-50/20">
+                                <option>3° Anno AFM</option>
+                                <option selected>4° Anno AFM</option>
+                                <option>5° Anno AFM / Maturità</option>
+                                <option>Altro / Altro Indirizzo</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 uppercase mb-2">Materia di interesse</label>
+                            <select class="w-full px-4 py-3 rounded-xl border border-purple-100 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm bg-purple-50/20">
+                                <option>Economia Aziendale</option>
+                                <option>Diritto & Politica</option>
+                                <option>Informatica</option>
+                                <option>Richiesta Schemi Su Misura</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 uppercase mb-2">Messaggio / Dettagli richiesta</label>
+                        <textarea rows="4" required placeholder="Spiega di cosa hai bisogno..." class="w-full px-4 py-3 rounded-xl border border-purple-100 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm bg-purple-50/20"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-xl shadow-lg shadow-brand-500/20 transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="send" class="w-4 h-4"></i> Invia Messaggio
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-900 text-purple-200 py-12 border-t border-brand-800 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="space-y-3">
+                    <span class="font-heading font-bold text-lg text-white">AFM Notes.</span>
+                    <p class="text-purple-300">Content Commerce per studenti di Economia e Diritto per la scuola superiore.</p>
+                </div>
+                <div>
+                    <h5 class="text-white font-semibold mb-3">Materie</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" onclick="switchTab('shop')" class="hover:text-white">Economia Aziendale</a></li>
+                        <li><a href="#" onclick="switchTab('shop')" class="hover:text-white">Diritto Pubblico & Fiscale</a></li>
+                        <li><a href="#" onclick="switchTab('shop')" class="hover:text-white">Informatica</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-semibold mb-3">Strumenti Consigliati</h5>
+                    <p class="text-purple-300 leading-relaxed">
+                        Sito strutturato in ottica WordPress/Gumroad + schemi progettati su Canva.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-white font-semibold mb-3">Info Legali</h5>
+                    <p class="text-purple-300">Progetto didattico e divulgativo indipendente gestito da studenti.</p>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-brand-800 text-center text-purple-400">
+                &copy; 2026 AFM Notes. Tutti i diritti riservati.
+            </div>
+        </div>
+    </footer>
+
+    <!-- CART MODAL -->
+    <div id="cart-modal" class="fixed inset-0 bg-brand-950/60 backdrop-blur-sm z-50 hidden flex justify-end">
+        <div class="w-full max-w-md bg-white h-full shadow-2xl flex flex-col justify-between">
+            <div class="p-6 border-b border-purple-100 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-600"></i>
+                    <h3 class="font-heading font-bold text-lg text-slate-900">Il tuo Carrello</h3>
+                </div>
+                <button onclick="toggleCartModal()" class="p-2 text-slate-400 hover:text-slate-700">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <div id="cart-items-container" class="p-6 flex-grow overflow-y-auto space-y-4 custom-scrollbar">
+                <!-- Cart contents injected dynamically -->
+            </div>
+
+            <div class="p-6 border-t border-purple-100 bg-brand-50/50 space-y-4">
+                <div class="flex justify-between text-base font-bold text-slate-900">
+                    <span>Totale:</span>
+                    <span id="cart-total-price" class="text-brand-700">€ 0,00</span>
+                </div>
+                <button onclick="processSimulatedCheckout()" id="checkout-btn" class="w-full py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow-lg shadow-brand-600/20 transition-all flex items-center justify-center gap-2 disabled:opacity-50" disabled>
+                    <i data-lucide="lock" class="w-4 h-4"></i>
+                    Acquista & Scarica Subito
+                </button>
+                <p class="text-[11px] text-center text-slate-500">Consegna automatica immediata via PDF</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRODUCT PREVIEW MODAL -->
+    <div id="product-modal" class="fixed inset-0 bg-brand-950/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeProductModal()" class="absolute top-6 right-6 p-2 text-slate-400 hover:text-slate-700">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            
+            <div id="product-modal-content">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Database dei Prodotti Digitali (Schemi)
+        const PRODUCTS = [
+            {
+                id: 'prod-1',
+                title: 'Pacchetto Economia Aziendale 4° Anno',
+                category: 'eco',
+                categoryName: 'Economia Aziendale',
+                price: 4.99,
+                badge: 'Best Seller',
+                description: 'Tutti gli schemi di 4° anno: Scritture di assestamento, Riparto utile, Stato Patrimoniale e Conto Economico riclassificati.',
+                pages: 18,
+                format: 'PDF HD (Pronto per stampa)',
+                previewTopics: [
+                    'Partita Doppia e Mastrini',
+                    'Ammortamenti e Risconti',
+                    'Schema Bilancio C.C. sinteticamente spiegato',
+                    'Indici di Bilancio essenziali'
+                ]
+            },
+            {
+                id: 'prod-2',
+                title: 'Diritto Pubblico e Tributario (4° Anno)',
+                category: 'diritto',
+                categoryName: 'Diritto & Politica',
+                price: 3.99,
+                badge: 'Popolare',
+                description: 'Mappe concettuali chiare sugli organi dello Stato, Costituzione e il Sistema Fiscale Italiano (IRPEF, IVA, IRES).',
+                pages: 14,
+                format: 'PDF HD',
+                previewTopics: [
+                    'Parlamento, Governo e Presidente della Repubblica',
+                    'Principi Fissatori delle Imposte',
+                    'Dichiarazione dei Redditi semplificata'
+                ]
+            },
+            {
+                id: 'prod-3',
+                title: 'Informatica Gestionale & Database SQL',
+                category: 'info',
+                categoryName: 'Informatica',
+                price: 3.49,
+                badge: 'Novità',
+                description: 'Guida rapida ai modelli E-R, tabelle relazionali e comandi SQL fondamentali per le verifiche di laboratorio.',
+                pages: 12,
+                format: 'PDF HD',
+                previewTopics: [
+                    'Progettazione Concettuale e Logica',
+                    'Query SELECT, WHERE, JOIN con esempi',
+                    'Esercizi di laboratorio risolti'
+                ]
+            },
+            {
+                id: 'prod-4',
+                title: 'Kit Metodo di Studio e Sintesi Visiva AFM',
+                category: 'metodo',
+                categoryName: 'Metodo di Studio',
+                price: 2.99,
+                badge: 'Guida',
+                description: 'Guida step-by-step per prendere appunti veloci durante le spiegazioni di Economia e schematizzare capitoli di 40 pagine.',
+                pages: 10,
+                format: 'PDF HD',
+                previewTopics: [
+                    'Codici colore per la memoria visiva',
+                    'Come preparare un\'orale di Diritto senza memoria meccanica'
+                ]
+            },
+            {
+                id: 'prod-5',
+                title: 'Economia Politica: Mercati e Keynes',
+                category: 'diritto',
+                categoryName: 'Diritto & Politica',
+                price: 3.49,
+                badge: '',
+                description: 'Schemi sulla domanda/offerta, forme di mercato (Monopolio, Concorrenza) e teoria macroeconomica di Keynes.',
+                pages: 11,
+                format: 'PDF HD',
+                previewTopics: [
+                    'Grafici di equilibrio spiegati',
+                    'Inflazione e Politica Monetaria'
+                ]
+            }
+        ];
+
+        // State Management
+        let cart = [];
+
+        // App Initialization
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            renderProducts();
+            switchTab('home');
+        });
+
+        // Tab Navigation Logic
+        function switchTab(tabId) {
+            document.querySelectorAll('.page-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById(`page-${tabId}`).classList.remove('hidden');
+
+            // Update nav button active states
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-600', 'text-white', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+            
+            const activeBtn = document.getElementById(`nav-${tabId}`);
+            if(activeBtn) {
+                activeBtn.classList.add('bg-brand-600', 'text-white', 'shadow-sm');
+                activeBtn.classList.remove('text-slate-600');
+            }
+
+            // Scroll to top
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        // Render Product Cards
+        function renderProducts(category = 'all') {
+            const featuredGrid = document.getElementById('featured-products-grid');
+            const shopGrid = document.getElementById('shop-products-grid');
+
+            // Render Featured (First 3)
+            if(featuredGrid) {
+                featuredGrid.innerHTML = PRODUCTS.slice(0, 3).map(p => createProductCardHTML(p)).join('');
+            }
+
+            // Render Shop Products
+            if(shopGrid) {
+                const filtered = category === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === category);
+                shopGrid.innerHTML = filtered.map(p => createProductCardHTML(p)).join('');
+            }
+
+            lucide.createIcons();
+        }
+
+        function createProductCardHTML(product) {
+            return `
+                <div class="bg-white rounded-2xl border border-purple-100 p-6 flex flex-col justify-between hover:border-brand-300 hover:shadow-lg hover:shadow-brand-500/5 transition-all group">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded-md bg-brand-50 text-brand-700 text-xs font-semibold border border-purple-100">${product.categoryName}</span>
+                            ${product.badge ? `<span class="px-2.5 py-1 rounded-md bg-purple-100 text-brand-800 text-xs font-bold">${product.badge}</span>` : ''}
+                        </div>
+                        <h3 class="font-heading font-bold text-lg text-slate-900 group-hover:text-brand-600 transition-colors">${product.title}</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">${product.description}</p>
+                    </div>
+
+                    <div class="pt-6 border-t border-purple-50 mt-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-xs text-slate-400 block">Formato PDF • ${product.pages} pag.</span>
+                                <span class="font-heading font-extrabold text-xl text-brand-900">€ ${product.price.toFixed(2).replace('.', ',')}</span>
+                            </div>
+                            <button onclick="openProductModal('${product.id}')" class="text-xs text-brand-600 font-semibold hover:underline">
+                                Anteprima schemi
+                            </button>
+                        </div>
+                        <button onclick="addToCart('${product.id}')" class="w-full py-3 bg-brand-700 hover:bg-brand-800 text-white text-xs font-bold rounded-xl transition-colors flex items-center justify-center gap-2 shadow-sm">
+                            <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
+                            Aggiungi al Carrello
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Category Filter Handling
+        function filterShop(cat) {
+            document.querySelectorAll('.shop-filter-btn').forEach(btn => {
+                if(btn.dataset.cat === cat) {
+                    btn.classList.add('bg-brand-600', 'text-white');
+                    btn.classList.remove('bg-white', 'border', 'border-purple-200', 'text-slate-700');
+                } else {
+                    btn.classList.remove('bg-brand-600', 'text-white');
+                    btn.classList.add('bg-white', 'border', 'border-purple-200', 'text-slate-700');
+                }
+            });
+            renderProducts(cat);
+        }
+
+        // Cart Actions
+        function addToCart(prodId) {
+            const product = PRODUCTS.find(p => p.id === prodId);
+            if(!product) return;
+
+            const existing = cart.find(item => item.id === prodId);
+            if(!existing) {
+                cart.push({...product, qty: 1});
+            }
+
+            updateCartUI();
+            toggleCartModal(true);
+        }
+
+        function removeFromCart(prodId) {
+            cart = cart.filter(item => item.id !== prodId);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const badge = document.getElementById('cart-badge');
+            const itemsContainer = document.getElementById('cart-items-container');
+            const totalPriceEl = document.getElementById('cart-total-price');
+            const checkoutBtn = document.getElementById('checkout-btn');
+
+            const totalCount = cart.length;
+            if(totalCount > 0) {
+                badge.textContent = totalCount;
+                badge.classList.remove('hidden');
+                checkoutBtn.disabled = false;
+            } else {
+                badge.classList.add('hidden');
+                checkoutBtn.disabled = true;
+            }
+
+            if(cart.length === 0) {
+                itemsContainer.innerHTML = `
+                    <div class="text-center py-12 space-y-3">
+                        <i data-lucide="shopping-bag" class="w-12 h-12 text-purple-200 mx-auto"></i>
+                        <p class="text-sm font-semibold text-slate-600">Il tuo carrello è vuoto</p>
+                        <p class="text-xs text-slate-400">Aggiungi qualche pacchetto di schemi per iniziare.</p>
+                    </div>
+                `;
+            } else {
+                let total = 0;
+                itemsContainer.innerHTML = cart.map(item => {
+                    total += item.price;
+                    return `
+                        <div class="flex items-center justify-between p-3.5 bg-brand-50/50 rounded-xl border border-purple-100">
+                            <div class="space-y-1 max-w-[220px]">
+                                <h4 class="text-xs font-bold text-slate-900 truncate">${item.title}</h4>
+                                <span class="text-[11px] text-brand-600 font-semibold">€ ${item.price.toFixed(2).replace('.', ',')}</span>
+                            </div>
+                            <button onclick="removeFromCart('${item.id}')" class="text-slate-400 hover:text-rose-500 p-1">
+                                <i data-lucide="trash-2" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    `;
+                }).join('');
+                totalPriceEl.textContent = `€ ${total.toFixed(2).replace('.', ',')}`;
+            }
+
+            lucide.createIcons();
+        }
+
+        function toggleCartModal(show = null) {
+            const modal = document.getElementById('cart-modal');
+            if(show === true) modal.classList.remove('hidden');
+            else if(show === false) modal.classList.add('hidden');
+            else modal.classList.toggle('hidden');
+        }
+
+        // Product Details Modal
+        function openProductModal(prodId) {
+            const product = PRODUCTS.find(p => p.id === prodId);
+            if(!product) return;
+
+            const content = document.getElementById('product-modal-content');
+            content.innerHTML = `
+                <div class="space-y-4">
+                    <span class="px-2.5 py-1 rounded-md bg-brand-50 text-brand-700 text-xs font-bold uppercase border border-purple-100">${product.categoryName}</span>
+                    <h2 class="font-heading text-2xl font-bold text-slate-900">${product.title}</h2>
+                    <p class="text-slate-600 text-xs leading-relaxed">${product.description}</p>
+                    
+                    <div class="bg-brand-50/50 p-4 rounded-xl space-y-2 border border-purple-100">
+                        <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider">Cosa troverai nel file PDF:</h4>
+                        <ul class="space-y-1.5 text-xs text-slate-600">
+                            ${product.previewTopics.map(t => `<li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-600"></i> ${t}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-purple-100">
+                        <div>
+                            <span class="text-xs text-slate-400 block">Prezzo</span>
+                            <span class="font-heading font-extrabold text-2xl text-brand-900">€ ${product.price.toFixed(2).replace('.', ',')}</span>
+                        </div>
+                        <button onclick="addToCart('${product.id}'); closeProductModal();" class="px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center gap-2">
+                            <i data-lucide="shopping-cart" class="w-4 h-4"></i> Aggiungi al Carrello
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('product-modal').classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        function closeProductModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+        }
+
+        // Checkout Simulation
+        function processSimulatedCheckout() {
+            if(cart.length === 0) return;
+
+            // Simulated Download Trigger
+            const fileNames = cart.map(c => c.title).join('\n• ');
+            alert(`🎉 ACQUISTO COMPLETATO CON SUCCESSO!\n\nGrazie per aver sostenuto il progetto AFM Notes.\nI seguenti file PDF sono stati inviati ed è stato avviato il download automatico:\n\n• ${fileNames}`);
+
+            cart = [];
+            updateCartUI();
+            toggleCartModal(false);
+        }
+
+        // Blog Article Switching
+        function openBlogArticle(artId) {
+            switchTab('blog');
+            document.getElementById('blog-list-view').classList.add('hidden');
+            document.getElementById('blog-single-view').classList.remove('hidden');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function closeBlogArticle() {
+            document.getElementById('blog-single-view').classList.add('hidden');
+            document.getElementById('blog-list-view').classList.remove('hidden');
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const openIcon = document.getElementById('menu-icon-open');
+            const closeIcon = document.getElementById('menu-icon-close');
+
+            menu.classList.toggle('hidden');
+            openIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+
+        // Form Submission
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            alert('Grazie per il tuo messaggio! Ti risponderò via email entro 24 ore.');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
