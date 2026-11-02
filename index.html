@@ -789,6 +789,32 @@
             }
         ];
 
+        // State & Navigation
+        let cart = [];
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.page-content').forEach(el => el.classList.add('hidden'));
+            const target = document.getElementById(`page-${tabId}`);
+            if(target) target.classList.remove('hidden');
+
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-600', 'text-white');
+                btn.classList.add('text-slate-600');
+            });
+            const activeNav = document.getElementById(`nav-${tabId}`);
+            if(activeNav) {
+                activeNav.classList.add('bg-brand-600', 'text-white');
+                activeNav.classList.remove('text-slate-600');
+            }
+
+            if(tabId === 'shop' || tabId === 'home') {
+                renderProducts();
+            }
+
+            // Scroll to top
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
         // Method score calculation
         function updateMethodScore() {
             const checkboxes = document.querySelectorAll('#page-metodo input[type="checkbox"]');
@@ -807,10 +833,6 @@
             } else if(checkedCount === 4) {
                 box.textContent = '👑 PERFETTO! Hai applicato il Metodo Aurora al 100%! La verifica andrà benissimo! 🎉';
             }
-        }
-
-            // Scroll to top
-            window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
         // Render Product Cards
@@ -871,172 +893,9 @@
             `;
         }
 
-        // Category Filter Handling
-        function filterShop(cat) {
-            document.querySelectorAll('.shop-filter-btn').forEach(btn => {
-                if(btn.dataset.cat === cat) {
-                    btn.classList.add('bg-brand-600', 'text-white');
-                    btn.classList.remove('bg-white', 'border', 'border-purple-200', 'text-slate-700');
-                } else {
-                    btn.classList.remove('bg-brand-600', 'text-white');
-                    btn.classList.add('bg-white', 'border', 'border-purple-200', 'text-slate-700');
-                }
-            });
-            renderProducts(cat);
-        }
-
-        // Cart Actions
-        function addToCart(prodId) {
-            const product = PRODUCTS.find(p => p.id === prodId);
-            if(!product) return;
-
-            const existing = cart.find(item => item.id === prodId);
-            if(!existing) {
-                cart.push({...product, qty: 1});
-            }
-
-            updateCartUI();
-            toggleCartModal(true);
-        }
-
-        function removeFromCart(prodId) {
-            cart = cart.filter(item => item.id !== prodId);
-            updateCartUI();
-        }
-
-        function updateCartUI() {
-            const badge = document.getElementById('cart-badge');
-            const itemsContainer = document.getElementById('cart-items-container');
-            const totalPriceEl = document.getElementById('cart-total-price');
-            const checkoutBtn = document.getElementById('checkout-btn');
-
-            const totalCount = cart.length;
-            if(totalCount > 0) {
-                badge.textContent = totalCount;
-                badge.classList.remove('hidden');
-                checkoutBtn.disabled = false;
-            } else {
-                badge.classList.add('hidden');
-                checkoutBtn.disabled = true;
-            }
-
-            if(cart.length === 0) {
-                itemsContainer.innerHTML = `
-                    <div class="text-center py-12 space-y-3">
-                        <i data-lucide="shopping-bag" class="w-12 h-12 text-purple-200 mx-auto"></i>
-                        <p class="text-sm font-bold text-slate-600">Il carrello di Aurora è vuoto</p>
-                        <p class="text-xs text-slate-400">Scegli qualche scheda o pacchetto per iniziare!</p>
-                    </div>
-                `;
-            } else {
-                let total = 0;
-                itemsContainer.innerHTML = cart.map(item => {
-                    total += item.price;
-                    return `
-                        <div class="flex items-center justify-between p-3.5 bg-brand-50/60 rounded-2xl border border-purple-100">
-                            <div class="space-y-0.5 max-w-[220px]">
-                                <h4 class="text-xs font-bold text-slate-900 truncate">${item.title}</h4>
-                                <span class="text-[11px] text-brand-700 font-bold">€ ${item.price.toFixed(2).replace('.', ',')}</span>
-                            </div>
-                            <button onclick="removeFromCart('${item.id}')" class="text-slate-400 hover:text-rose-500 p-1">
-                                <i data-lucide="trash-2" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                    `;
-                }).join('');
-                totalPriceEl.textContent = `€ ${total.toFixed(2).replace('.', ',')}`;
-            }
-
-            lucide.createIcons();
-        }
-
-        function toggleCartModal(show = null) {
-            const modal = document.getElementById('cart-modal');
-            if(show === true) modal.classList.remove('hidden');
-            else if(show === false) modal.classList.add('hidden');
-            else modal.classList.toggle('hidden');
-        }
-
-        // Product Details Modal
-        function openProductModal(prodId) {
-            const product = PRODUCTS.find(p => p.id === prodId);
-            if(!product) return;
-
-            const content = document.getElementById('product-modal-content');
-            content.innerHTML = `
-                <div class="space-y-4">
-                    <span class="sticker sticker-purple">${product.categoryName}</span>
-                    <h2 class="font-heading text-2xl font-black text-slate-900">${product.title}</h2>
-                    <p class="text-slate-600 text-xs leading-relaxed">${product.description}</p>
-                    
-                    <div class="bg-brand-50/70 p-4 rounded-2xl space-y-2 border border-purple-100">
-                        <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider">Mappe ed Argomenti compresi:</h4>
-                        <ul class="space-y-2 text-xs text-slate-700 font-medium">
-                            ${product.previewTopics.map(t => `<li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-600 flex-shrink-0"></i> ${t}</li>`).join('')}
-                        </ul>
-                    </div>
-
-                    <div class="flex items-center justify-between pt-4 border-t border-purple-100">
-                        <div>
-                            <span class="text-xs text-slate-400 block font-medium">Prezzo digitale</span>
-                            <span class="font-heading font-black text-2xl text-brand-900">€ ${product.price.toFixed(2).replace('.', ',')}</span>
-                        </div>
-                        <button onclick="addToCart('${product.id}'); closeProductModal();" class="px-6 py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs rounded-2xl shadow-md transition-all flex items-center gap-2">
-                            <i data-lucide="shopping-cart" class="w-4 h-4"></i> Aggiungi al Carrello
-                        </button>
-                    </div>
-                </div>
-            `;
-
-            document.getElementById('product-modal').classList.remove('hidden');
-            lucide.createIcons();
-        }
-
-        function closeProductModal() {
-            document.getElementById('product-modal').classList.add('hidden');
-        }
-
-        // Checkout Simulation
-        function processSimulatedCheckout() {
-            if(cart.length === 0) return;
-
-            const fileNames = cart.map(c => c.title).join('\n• ');
-            alert(`🎉 ACQUISTO COMPLETATO CON SUCCESSO!\n\nGrazie per aver scelto Aurora's Notes!\nI file PDF delle seguenti materie sono stati scaricati:\n\n• ${fileNames}`);
-
-            cart = [];
-            updateCartUI();
-            toggleCartModal(false);
-        }
-
-        // Blog Article Switching
-        function openBlogArticle(artId) {
-            switchTab('blog');
-            document.getElementById('blog-list-view').classList.add('hidden');
-            document.getElementById('blog-single-view').classList.remove('hidden');
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
-
-        function closeBlogArticle() {
-            document.getElementById('blog-single-view').classList.add('hidden');
-            document.getElementById('blog-list-view').classList.remove('hidden');
-        }
-
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const openIcon = document.getElementById('menu-icon-open');
-            const closeIcon = document.getElementById('menu-icon-close');
-
-            menu.classList.toggle('hidden');
-            openIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
-        }
-
-        // Form Submission
-        function handleContactSubmit(e) {
-            e.preventDefault();
-            alert('Messaggio inviato ad Aurora! Ti risponderò via email il prima possibile.');
-            e.target.reset();
+        // Init on load
+        window.onload = function() {
+            switchTab('home');
         }
     </script>
 </body>
