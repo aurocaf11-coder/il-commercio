@@ -107,11 +107,12 @@
 
             <!-- Desktop Nav Links -->
             <nav class="hidden md:flex items-center gap-1 bg-brand-50/80 p-1.5 rounded-full border border-purple-100">
-                <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-5 py-2 rounded-full text-sm font-semibold transition-all">Home</button>
-                <button onclick="switchTab('shop')" id="nav-shop" class="nav-btn px-5 py-2 rounded-full text-sm font-medium text-slate-600 hover:text-brand-700 transition-all">Shop Schemi</button>
-                <button onclick="switchTab('blog')" id="nav-blog" class="nav-btn px-5 py-2 rounded-full text-sm font-medium text-slate-600 hover:text-brand-700 transition-all">Blog & Guide</button>
-                <button onclick="switchTab('about')" id="nav-about" class="nav-btn px-5 py-2 rounded-full text-sm font-medium text-slate-600 hover:text-brand-700 transition-all">Chi Sono</button>
-                <button onclick="switchTab('contact')" id="nav-contact" class="nav-btn px-5 py-2 rounded-full text-sm font-medium text-slate-600 hover:text-brand-700 transition-all">Contatti</button>
+                <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-4 py-2 rounded-full text-xs font-semibold transition-all">Home</button>
+                <button onclick="switchTab('shop')" id="nav-shop" class="nav-btn px-4 py-2 rounded-full text-xs font-medium text-slate-600 hover:text-brand-700 transition-all">Shop Schemi</button>
+                <button onclick="switchTab('metodo')" id="nav-metodo" class="nav-btn px-4 py-2 rounded-full text-xs font-medium text-slate-600 hover:text-brand-700 transition-all">Il Mio Metodo ✨</button>
+                <button onclick="switchTab('blog')" id="nav-blog" class="nav-btn px-4 py-2 rounded-full text-xs font-medium text-slate-600 hover:text-brand-700 transition-all">Blog & Guide</button>
+                <button onclick="switchTab('about')" id="nav-about" class="nav-btn px-4 py-2 rounded-full text-xs font-medium text-slate-600 hover:text-brand-700 transition-all">Chi Sono</button>
+                <button onclick="switchTab('contact')" id="nav-contact" class="nav-btn px-4 py-2 rounded-full text-xs font-medium text-slate-600 hover:text-brand-700 transition-all">Contatti</button>
             </nav>
 
             <!-- Actions / Cart Button -->
@@ -133,9 +134,10 @@
         <div id="mobile-menu" class="hidden md:hidden border-b border-purple-100 bg-white px-4 pt-2 pb-6 space-y-2">
             <button onclick="switchTab('home'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-brand-50">Home</button>
             <button onclick="switchTab('shop'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-brand-50">Shop Schemi PDF</button>
-            <button onclick="switchTab('blog'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-brand-50">Blog & Guide di Studio</button>
+            <button onclick="switchTab('metodo'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-brand-50">Il Mio Metodo di Studio ✨</button>
+            <button onclick="switchTab('blog'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-brand-50">Blog & Guide</button>
             <button onclick="switchTab('about'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-brand-50">Chi Sono</button>
-            <button onclick="switchTab('contact'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-brand-50">Contatti / Schemi Su Misura</button>
+            <button onclick="switchTab('contact'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-brand-50">Contatti</button>
         </div>
     </header>
 
@@ -245,51 +247,65 @@
                 <div class="text-center max-w-2xl mx-auto space-y-2">
                     <span class="sticker sticker-purple">🎨 Organizzati per Materia</span>
                     <h2 class="font-heading text-3xl font-extrabold text-slate-900">Scegli la Materia che vuoi Superare</h2>
-                    <p class="text-slate-600 text-sm">Tutti gli schemi sono scritti e graficizzati da me (Aurora) in formato PDF digitale.</p>
+                    <p class="text-slate-600 text-sm">Tutti gli schemi sono scritti e graficizzati da me (Aurora) per tutte le materie del programma scolastico!</p>
                 </div>
 
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-                    <!-- Subject Badge 1 -->
-                    <button onclick="switchTab('shop'); filterShop('eco');" class="bg-white p-4 rounded-2xl border border-purple-100 hover:border-brand-500 hover:shadow-md transition-all text-center space-y-2 group">
-                        <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="calculator" class="w-6 h-6"></i>
+                <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+                    <!-- Subject Badge 1: Economia Aziendale -->
+                    <button onclick="switchTab('shop'); filterShop('eco_aziendale');" class="bg-white p-3.5 rounded-2xl border border-purple-100 hover:border-brand-500 hover:shadow-md transition-all text-center space-y-2 group">
+                        <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-700 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="calculator" class="w-5 h-5"></i>
                         </div>
-                        <h4 class="font-bold text-xs text-slate-900">Economia Aziendale</h4>
+                        <h4 class="font-bold text-[11px] text-slate-900 leading-tight">Economia Aziendale</h4>
                     </button>
-                    <!-- Subject Badge 2 -->
-                    <button onclick="switchTab('shop'); filterShop('diritto');" class="bg-white p-4 rounded-2xl border border-purple-100 hover:border-brand-500 hover:shadow-md transition-all text-center space-y-2 group">
-                        <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-700 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="scale" class="w-6 h-6"></i>
+                    <!-- Subject Badge 2: Diritto -->
+                    <button onclick="switchTab('shop'); filterShop('diritto');" class="bg-white p-3.5 rounded-2xl border border-purple-100 hover:border-brand-500 hover:shadow-md transition-all text-center space-y-2 group">
+                        <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="scale" class="w-5 h-5"></i>
                         </div>
-                        <h4 class="font-bold text-xs text-slate-900">Diritto Pubblico & Privato</h4>
+                        <h4 class="font-bold text-[11px] text-slate-900 leading-tight">Diritto</h4>
                     </button>
-                    <!-- Subject Badge 3 -->
-                    <button onclick="switchTab('shop'); filterShop('info');" class="bg-white p-4 rounded-2xl border border-purple-100 hover:border-brand-500 hover:shadow-md transition-all text-center space-y-2 group">
-                        <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-700 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="database" class="w-6 h-6"></i>
+                    <!-- Subject Badge 3: Economia Politica -->
+                    <button onclick="switchTab('shop'); filterShop('eco_politica');" class="bg-white p-3.5 rounded-2xl border border-purple-100 hover:border-brand-500 hover:shadow-md transition-all text-center space-y-2 group">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="trending-up" class="w-5 h-5"></i>
                         </div>
-                        <h4 class="font-bold text-xs text-slate-900">Informatica & SQL</h4>
+                        <h4 class="font-bold text-[11px] text-slate-900 leading-tight">Economia Politica</h4>
                     </button>
-                    <!-- Subject Badge 4 -->
-                    <button onclick="switchTab('shop'); filterShop('matematica');" class="bg-white p-4 rounded-2xl border border-purple-100 hover:border-brand-500 hover:shadow-md transition-all text-center space-y-2 group">
-                        <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="line-chart" class="w-6 h-6"></i>
+                    <!-- Subject Badge 4: Inglese -->
+                    <button onclick="switchTab('shop'); filterShop('inglese');" class="bg-white p-3.5 rounded-2xl border border-purple-100 hover:border-brand-500 hover:shadow-md transition-all text-center space-y-2 group">
+                        <div class="w-10 h-10 rounded-xl bg-pink-100 text-pink-700 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="languages" class="w-5 h-5"></i>
                         </div>
-                        <h4 class="font-bold text-xs text-slate-900">Matematica Finanziaria</h4>
+                        <h4 class="font-bold text-[11px] text-slate-900 leading-tight">Inglese</h4>
                     </button>
-                    <!-- Subject Badge 5 -->
-                    <button onclick="switchTab('shop'); filterShop('inglese');" class="bg-white p-4 rounded-2xl border border-purple-100 hover:border-brand-500 hover:shadow-md transition-all text-center space-y-2 group">
-                        <div class="w-12 h-12 rounded-xl bg-pink-100 text-pink-700 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="languages" class="w-6 h-6"></i>
+                    <!-- Subject Badge 5: Spagnolo -->
+                    <button onclick="switchTab('shop'); filterShop('spagnolo');" class="bg-white p-3.5 rounded-2xl border border-purple-100 hover:border-brand-500 hover:shadow-md transition-all text-center space-y-2 group">
+                        <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="globe" class="w-5 h-5"></i>
                         </div>
-                        <h4 class="font-bold text-xs text-slate-900">Inglese Commerciale</h4>
+                        <h4 class="font-bold text-[11px] text-slate-900 leading-tight">Spagnolo</h4>
                     </button>
-                    <!-- Subject Badge 6 -->
-                    <button onclick="switchTab('shop'); filterShop('metodo');" class="bg-white p-4 rounded-2xl border border-purple-100 hover:border-brand-500 hover:shadow-md transition-all text-center space-y-2 group">
-                        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="brain" class="w-6 h-6"></i>
+                    <!-- Subject Badge 6: Italiano -->
+                    <button onclick="switchTab('shop'); filterShop('italiano');" class="bg-white p-3.5 rounded-2xl border border-purple-100 hover:border-brand-500 hover:shadow-md transition-all text-center space-y-2 group">
+                        <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-700 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="book-open-check" class="w-5 h-5"></i>
                         </div>
-                        <h4 class="font-bold text-xs text-slate-900">Metodo di Studio</h4>
+                        <h4 class="font-bold text-[11px] text-slate-900 leading-tight">Italiano</h4>
+                    </button>
+                    <!-- Subject Badge 7: Storia -->
+                    <button onclick="switchTab('shop'); filterShop('storia');" class="bg-white p-3.5 rounded-2xl border border-purple-100 hover:border-brand-500 hover:shadow-md transition-all text-center space-y-2 group">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="hourglass" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="font-bold text-[11px] text-slate-900 leading-tight">Storia</h4>
+                    </button>
+                    <!-- Subject Badge 8: Matematica -->
+                    <button onclick="switchTab('shop'); filterShop('matematica');" class="bg-white p-3.5 rounded-2xl border border-purple-100 hover:border-brand-500 hover:shadow-md transition-all text-center space-y-2 group">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-100 text-cyan-700 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="binary" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="font-bold text-[11px] text-slate-900 leading-tight">Matematica</h4>
                     </button>
                 </div>
             </section>
@@ -332,20 +348,22 @@
         <!-- ================= PAGE 2: SHOP ================= -->
         <div id="page-shop" class="page-content hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
             <div class="text-center max-w-2xl mx-auto space-y-2">
-                <span class="sticker sticker-purple">🛒 Catalogo Appunti</span>
+                <span class="sticker sticker-purple">🛒 Catalogo Completo Appunti</span>
                 <h1 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900">Shop Schemi Digitali PDF</h1>
-                <p class="text-slate-600 text-sm">Scarica subito gli appunti lilla di Aurora, formattati in alta risoluzione.</p>
+                <p class="text-slate-600 text-sm">Scarica subito gli appunti lilla di Aurora per tutte le materie.</p>
             </div>
 
             <!-- Subject Category Filters -->
             <div class="flex flex-wrap items-center justify-center gap-2 pt-2">
                 <button onclick="filterShop('all')" class="shop-filter-btn px-4 py-2 rounded-full text-xs font-bold bg-brand-600 text-white shadow-sm" data-cat="all">Tutti</button>
-                <button onclick="filterShop('eco')" class="shop-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="eco">Economia Aziendale</button>
-                <button onclick="filterShop('diritto')" class="shop-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="diritto">Diritto & Politica</button>
-                <button onclick="filterShop('info')" class="shop-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="info">Informatica</button>
-                <button onclick="filterShop('matematica')" class="shop-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="matematica">Matematica Finanziaria</button>
-                <button onclick="filterShop('inglese')" class="shop-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="inglese">Inglese Commerciale</button>
-                <button onclick="filterShop('metodo')" class="shop-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="metodo">Metodo di Studio</button>
+                <button onclick="filterShop('eco_aziendale')" class="shop-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="eco_aziendale">Economia Aziendale</button>
+                <button onclick="filterShop('diritto')" class="shop-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="diritto">Diritto</button>
+                <button onclick="filterShop('eco_politica')" class="shop-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="eco_politica">Economia Politica</button>
+                <button onclick="filterShop('inglese')" class="shop-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="inglese">Inglese</button>
+                <button onclick="filterShop('spagnolo')" class="shop-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="spagnolo">Spagnolo</button>
+                <button onclick="filterShop('italiano')" class="shop-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="italiano">Italiano</button>
+                <button onclick="filterShop('storia')" class="shop-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="storia">Storia</button>
+                <button onclick="filterShop('matematica')" class="shop-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="matematica">Matematica</button>
             </div>
 
             <!-- Shop Products Grid -->
@@ -354,150 +372,88 @@
             </div>
         </div>
 
-        <!-- ================= PAGE 3: BLOG / GUIDE ================= -->
-        <div id="page-blog" class="page-content hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
-            <!-- Article List Mode -->
-            <div id="blog-list-view" class="space-y-8">
-                <div class="text-center max-w-2xl mx-auto space-y-2">
-                    <span class="sticker sticker-cyan">💡 Consigli di Aurora</span>
-                    <h1 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900">Blog & Guide di Studio AFM</h1>
-                    <p class="text-slate-600 text-sm">Trucchi di memoria visiva, schemi di ripasso e spiegazioni semplici per tutte le materie.</p>
+        <!-- ================= PAGE: IL MIO METODO DI STUDIO ================= -->
+        <div id="page-metodo" class="page-content hidden max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+            <div class="text-center max-w-2xl mx-auto space-y-3">
+                <span class="sticker sticker-yellow">⚡ Provalo Subito!</span>
+                <h1 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900">Il Metodo di Studio di Aurora 💜</h1>
+                <p class="text-slate-600 text-sm">Efficace, visivo e orientato al risultato. Ecco la formula in 4 passi che uso ogni giorno per prendere 9+ senza passare 8 ore sui libri!</p>
+            </div>
+
+            <!-- The 4 Steps -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Step 1 -->
+                <div class="bg-white rounded-3xl p-6 border border-purple-100 shadow-sm space-y-3 relative overflow-hidden">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-100 text-brand-700 font-extrabold font-heading text-xl flex items-center justify-center">1</div>
+                    <h3 class="font-heading font-extrabold text-lg text-slate-900">Lettura Strategica & Evidenziatura Lilla</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Niente riletture passive! Leggo una volta sola il paragrafo ed evidenzio in <strong>lilla scuro</strong> solo i termini chiave, le date fondamentali e i concetti che il professore chiede sempre.
+                    </p>
                 </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Blog Card 1 -->
-                    <article class="bg-white rounded-3xl border border-purple-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
-                        <div class="h-48 bg-gradient-to-r from-brand-700 to-brand-500 p-6 text-white flex flex-col justify-between relative">
-                            <span class="self-start px-3 py-1 rounded-full bg-white/20 text-xs font-bold backdrop-blur-md">Economia Aziendale</span>
-                            <i data-lucide="calculator" class="w-12 h-12 opacity-80 self-end"></i>
-                        </div>
-                        <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
-                            <div>
-                                <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">
-                                    Come capire la Partita Doppia e il Bilancio senza impazzire
-                                </h3>
-                                <p class="text-slate-600 text-xs leading-relaxed line-clamp-3">
-                                    Analizziamo le regole auree del DARE e dell'AVVERE, la differenza tra aspetti finanziari ed economici ed esempi pratici.
-                                </p>
-                            </div>
-                            <div class="pt-4 border-t border-purple-50 flex items-center justify-between">
-                                <span class="text-xs text-slate-400 font-medium">Autore: Aurora • 5 min</span>
-                                <button onclick="openBlogArticle('art-1')" class="text-brand-600 font-bold text-xs flex items-center gap-1 hover:underline">
-                                    Leggi guida <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </article>
+                <!-- Step 2 -->
+                <div class="bg-white rounded-3xl p-6 border border-purple-100 shadow-sm space-y-3 relative overflow-hidden">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-100 text-purple-700 font-extrabold font-heading text-xl flex items-center justify-center">2</div>
+                    <h3 class="font-heading font-extrabold text-lg text-slate-900">Mappa Grafica ad Albero (Visual Mapping)</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Trasformo le pagine di testo in un unico foglio visivo. Uso frecce, colori differenziati (viola per definizioni, rosa per esempi) e icone per stimolare la memoria visiva durante la verifica.
+                    </p>
+                </div>
 
-                    <!-- Blog Card 2 -->
-                    <article class="bg-white rounded-3xl border border-purple-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
-                        <div class="h-48 bg-gradient-to-r from-purple-800 to-brand-600 p-6 text-white flex flex-col justify-between relative">
-                            <span class="self-start px-3 py-1 rounded-full bg-white/20 text-xs font-bold backdrop-blur-md">Diritto</span>
-                            <i data-lucide="scale" class="w-12 h-12 opacity-80 self-end"></i>
-                        </div>
-                        <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
-                            <div>
-                                <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">
-                                    I contratti commerciali più chiesti nei compiti in classe
-                                </h3>
-                                <p class="text-slate-600 text-xs leading-relaxed line-clamp-3">
-                                    Compravendita, locazione, leasing e mandato. Come ricordarsi clausole ed obblighi delle parti senza memoria meccanica.
-                                </p>
-                            </div>
-                            <div class="pt-4 border-t border-purple-50 flex items-center justify-between">
-                                <span class="text-xs text-slate-400 font-medium">Autore: Aurora • 4 min</span>
-                                <button onclick="openBlogArticle('art-2')" class="text-brand-600 font-bold text-xs flex items-center gap-1 hover:underline">
-                                    Leggi guida <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </article>
+                <!-- Step 3 -->
+                <div class="bg-white rounded-3xl p-6 border border-purple-100 shadow-sm space-y-3 relative overflow-hidden">
+                    <div class="w-12 h-12 rounded-2xl bg-pink-100 text-pink-700 font-extrabold font-heading text-xl flex items-center justify-center">3</div>
+                    <h3 class="font-heading font-extrabold text-lg text-slate-900">Spiegazione Ad Alta Voce (Feynman Technique)</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Provo a spiegare l'argomento con parole mie usando lo schema, come se dovessi insegnarlo a un compagno. Se mi inceppo in un passaggio, so esattamente dove devo ripassare.
+                    </p>
+                </div>
 
-                    <!-- Blog Card 3 -->
-                    <article class="bg-white rounded-3xl border border-purple-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
-                        <div class="h-48 bg-gradient-to-r from-indigo-700 to-purple-500 p-6 text-white flex flex-col justify-between relative">
-                            <span class="self-start px-3 py-1 rounded-full bg-white/20 text-xs font-bold backdrop-blur-md">Matematica Finanziaria</span>
-                            <i data-lucide="line-chart" class="w-12 h-12 opacity-80 self-end"></i>
-                        </div>
-                        <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
-                            <div>
-                                <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">
-                                    Interesse Semplice vs Composto: Formule da ricordare
-                                </h3>
-                                <p class="text-slate-600 text-xs leading-relaxed line-clamp-3">
-                                    Sconto, montante e regime di capitalizzazione: ecco il formulario essenziale con la spiegazione dei singoli simboli.
-                                </p>
-                            </div>
-                            <div class="pt-4 border-t border-purple-50 flex items-center justify-between">
-                                <span class="text-xs text-slate-400 font-medium">Autore: Aurora • 6 min</span>
-                                <button onclick="openBlogArticle('art-3')" class="text-brand-600 font-bold text-xs flex items-center gap-1 hover:underline">
-                                    Leggi guida <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </article>
+                <!-- Step 4 -->
+                <div class="bg-white rounded-3xl p-6 border border-purple-100 shadow-sm space-y-3 relative overflow-hidden">
+                    <div class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-700 font-extrabold font-heading text-xl flex items-center justify-center">4</div>
+                    <h3 class="font-heading font-extrabold text-lg text-slate-900">Ripasso A Spaziati (Active Recall)</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Ripasso lo schema dopo 24 ore, poi dopo 3 giorni e infine il giorno prima dell'interrogazione. Richiede solo 10 minuti e fissa la memoria a lungo termine!
+                    </p>
                 </div>
             </div>
 
-            <!-- Single Article Reading View -->
-            <div id="blog-single-view" class="hidden max-w-3xl mx-auto space-y-8 bg-white p-6 sm:p-10 rounded-3xl border border-purple-100 shadow-sm">
-                <button onclick="closeBlogArticle()" class="text-slate-500 hover:text-brand-700 text-sm font-bold flex items-center gap-2 mb-4">
-                    <i data-lucide="arrow-left" class="w-4 h-4"></i> Torna a tutti gli articoli
-                </button>
-
-                <div class="space-y-4 border-b border-purple-50 pb-6">
-                    <span class="sticker sticker-purple">Economia Aziendale</span>
-                    <h1 class="font-heading text-3xl sm:text-4xl font-black text-slate-900">Come capire la Partita Doppia e il Bilancio d'Esercizio senza impazzire</h1>
-                    <div class="flex items-center gap-3 text-xs text-slate-500 font-medium">
-                        <span>Scritto da <strong>Aurora</strong> (Studentessa AFM)</span>
-                        <span>•</span>
-                        <span>Tempo di lettura: 5 min</span>
-                    </div>
+            <!-- Interactive Checklist / Try My Method -->
+            <div class="bg-gradient-to-br from-brand-900 via-brand-800 to-purple-950 rounded-3xl p-8 sm:p-10 text-white shadow-xl space-y-6">
+                <div class="space-y-2">
+                    <span class="sticker sticker-yellow">🧪 Mettiti alla Prova!</span>
+                    <h2 class="font-heading text-2xl font-black">Prova il Metodo Aurora per il tuo prossimo studio:</h2>
+                    <p class="text-purple-200 text-xs">Spunta le azioni man mano che studi oggi e scopri come ti trovi!</p>
                 </div>
 
-                <!-- Article Body -->
-                <div class="prose prose-slate max-w-none text-slate-700 space-y-6 leading-relaxed text-sm sm:text-base">
-                    <p class="text-lg text-slate-600 font-medium">
-                        Se stai frequentando l'AFM, ti sarai scontrato almeno una volta con la Partita Doppia. Imparare i conti a memoria è stancante e rischioso per la verifica: vediamo la logica!
-                    </p>
+                <div class="space-y-3 text-sm font-medium">
+                    <label class="flex items-center gap-3 bg-white/10 p-3.5 rounded-2xl border border-white/15 cursor-pointer hover:bg-white/15 transition-colors">
+                        <input type="checkbox" onchange="updateMethodScore()" class="w-5 h-5 rounded text-brand-600 focus:ring-brand-500 accent-brand-500">
+                        <span>1. Ho estratto solo 5 parole chiave dal capitolo che devo studiare.</span>
+                    </label>
+                    <label class="flex items-center gap-3 bg-white/10 p-3.5 rounded-2xl border border-white/15 cursor-pointer hover:bg-white/15 transition-colors">
+                        <input type="checkbox" onchange="updateMethodScore()" class="w-5 h-5 rounded text-brand-600 focus:ring-brand-500 accent-brand-500">
+                        <span>2. Ho disegnato una mappa con colori diversi per concetti ed esempi.</span>
+                    </label>
+                    <label class="flex items-center gap-3 bg-white/10 p-3.5 rounded-2xl border border-white/15 cursor-pointer hover:bg-white/15 transition-colors">
+                        <input type="checkbox" onchange="updateMethodScore()" class="w-5 h-5 rounded text-brand-600 focus:ring-brand-500 accent-brand-500">
+                        <span>3. Ho ripetuto il contenuto ad alta voce guardando solo lo schema.</span>
+                    </label>
+                    <label class="flex items-center gap-3 bg-white/10 p-3.5 rounded-2xl border border-white/15 cursor-pointer hover:bg-white/15 transition-colors">
+                        <input type="checkbox" onchange="updateMethodScore()" class="w-5 h-5 rounded text-brand-600 focus:ring-brand-500 accent-brand-500">
+                        <span>4. Ho programmato un ripasso di 10 minuti per domani.</span>
+                    </label>
+                </div>
 
-                    <h3 class="font-heading font-bold text-xl text-slate-900 pt-2">1. La regola aurea: Aspetto Finanziario vs Economico</h3>
-                    <p>
-                        Pensa ad ogni operazione aziendale come a due lati della stessa medaglia. Quando la tua azienda compra merci per 1.000 €:
-                    </p>
-                    <ul class="list-disc pl-5 space-y-1">
-                        <td><strong>Aspetto Finanziario:</strong> Esce denaro o sorge un debito verso fornitori.</td>
-                        <td><strong>Aspetto Economico:</strong> Nasce il costo per l'acquisto di merci.</td>
-                    </ul>
+                <div id="method-score-box" class="p-4 rounded-2xl bg-white/10 border border-white/20 text-center font-bold text-xs text-purple-200">
+                    Spunta le caselle qui sopra per testare la tua preparazione!
+                </div>
 
-                    <div class="bg-brand-50 border-l-4 border-brand-500 p-4 rounded-r-2xl text-brand-900 text-sm font-medium">
-                        <strong>📌 Il trucco nei miei schemi:</strong><br>
-                        • Variazioni Finanziarie Positive (Cassa +, Crediti +) ➔ <strong>DARE</strong><br>
-                        • Variazioni Finanziarie Negative (Cassa -, Debiti +) ➔ <strong>AVERE</strong>
-                    </div>
-
-                    <!-- INTEGRATED PRODUCT BUY-BOX IN ARTICLE -->
-                    <div class="my-8 bg-gradient-to-br from-brand-50 via-purple-50 to-white border-2 border-brand-200 rounded-3xl p-6 sm:p-8 space-y-4 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm relative overflow-hidden">
-                        <div class="space-y-2 relative z-10">
-                            <span class="sticker sticker-yellow">⚡ Schemi di Aurora</span>
-                            <h4 class="font-heading font-extrabold text-slate-900 text-lg sm:text-xl">Vuoi ripassare tutto il programma con le mie mappe pronte?</h4>
-                            <p class="text-xs text-slate-600 max-w-md">
-                                Scarica il <strong>Pacchetto Schemi Economia 4° Anno</strong>: schemi visivi lilla e viola, tabelle DARE/AVERE e bilanci d'esercizio stampabili.
-                            </p>
-                        </div>
-                        <div class="flex-shrink-0 space-y-2 w-full sm:w-auto relative z-10">
-                            <button onclick="addToCart('prod-1')" class="w-full sm:w-auto px-6 py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
-                                <i data-lucide="download" class="w-4 h-4"></i>
-                                Scarica il Pacchetto a 4,99 €
-                            </button>
-                            <p class="text-center text-[10px] text-slate-500">Download immediato PDF</p>
-                        </div>
-                    </div>
-
-                    <h3 class="font-heading font-bold text-xl text-slate-900 pt-2">Conclusione</h3>
-                    <p>
-                        Una volta memorizzati gli automatismi visivi, far quadrare i mastrini diventa semplicissimo. Buon ripasso!
-                    </p>
+                <div class="text-center pt-2">
+                    <button onclick="switchTab('shop')" class="px-6 py-3.5 bg-white text-brand-900 rounded-2xl font-extrabold text-xs hover:bg-brand-50 transition-colors inline-flex items-center gap-2 shadow-lg">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-brand-600"></i> Scarica gli Schemi Pronti basati su questo Metodo
+                    </button>
                 </div>
             </div>
         </div>
@@ -692,17 +648,17 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // Database dei Prodotti Digitali di Aurora (Tutte le Materie AFM)
+        // Database dei Prodotti Digitali di Aurora (Tutte le Materie Richieste)
         const PRODUCTS = [
             {
                 id: 'prod-1',
                 title: 'Pacchetto Economia Aziendale 4° Anno',
-                category: 'eco',
+                category: 'eco_aziendale',
                 categoryName: 'Economia Aziendale',
                 price: 4.99,
                 badge: 'Best Seller 🔥',
                 icon: 'calculator',
-                description: 'Tutti gli schemi di 4° anno: Scritture di assestamento, Riparto utile, Stato Patrimoniale e Conto Economico riclassificati.',
+                description: 'Scritture di assestamento, Riparto utile, Stato Patrimoniale e Conto Economico riclassificati.',
                 pages: 18,
                 format: 'PDF HD (Stampa / iPad)',
                 previewTopics: [
@@ -714,117 +670,144 @@
             },
             {
                 id: 'prod-2',
-                title: 'Diritto Pubblico e Fiscale (4° Anno)',
+                title: 'Diritto Pubblico, Costituzione e Fiscale',
                 category: 'diritto',
-                categoryName: 'Diritto & Politica',
+                categoryName: 'Diritto',
                 price: 3.99,
                 badge: 'Molto Richiesto ⭐',
                 icon: 'scale',
-                description: 'Mappe concettuali chiare sugli organi dello Stato, Costituzione e il Sistema Fiscale Italiano (IRPEF, IVA, IRES).',
+                description: 'Mappe concettuali su Organi dello Stato, Costituzione Italiana e Sistema Fiscale.',
                 pages: 14,
                 format: 'PDF HD',
                 previewTopics: [
                     'Parlamento, Governo e Presidente della Repubblica',
-                    'Principi Fissatori delle Imposte',
-                    'Dichiarazione dei Redditi spiegata semplice'
+                    'Contratti commerciali (Compravendita, Leasing, Locazione)',
+                    'Imposte dirette ed indirette spiegate in modo visivo'
                 ]
             },
             {
                 id: 'prod-3',
-                title: 'Informatica Gestionale & Query SQL',
-                category: 'info',
-                categoryName: 'Informatica',
-                price: 3.49,
-                badge: 'Novità 💻',
-                icon: 'database',
-                description: 'Guida rapida ai modelli E-R, tabelle relazionali e comandi SQL fondamentali per le verifiche di laboratorio.',
-                pages: 12,
+                title: 'Economia Politica: Micro & Macroeconomia',
+                category: 'eco_politica',
+                categoryName: 'Economia Politica',
+                price: 3.99,
+                badge: 'Completo 📈',
+                icon: 'trending-up',
+                description: 'Domanda e Offerta, Formazione dei Prezzi, Mercati, PIL, Inflazione e Politica Monetaria.',
+                pages: 16,
                 format: 'PDF HD',
                 previewTopics: [
-                    'Progettazione Concettuale e Logica con diagrammi',
-                    'Query SELECT, WHERE, JOIN con soluzioni',
-                    'Esercizi tipo prova pratica'
+                    'Grafici di Domanda ed Elasticità con colori lilla',
+                    'Forme di mercato (Concorrenza, Monopolio, Oligopolio)',
+                    'Ruolo della Banca Centrale e Politiche Economiche'
                 ]
             },
             {
                 id: 'prod-4',
-                title: 'Matematica Finanziaria: Formule e Mappe',
-                category: 'matematica',
-                categoryName: 'Matematica Finanziaria',
-                price: 3.99,
-                badge: 'Voto 9+ 📈',
-                icon: 'line-chart',
-                description: 'Tutte le formule di interesse semplice, composto, ammortamento mutui e rendite spiegate con esempi visivi.',
-                pages: 15,
+                title: 'Inglese: Commercial & General Grammar',
+                category: 'inglese',
+                categoryName: 'Inglese',
+                price: 3.49,
+                badge: 'Business English 🇬🇧',
+                icon: 'languages',
+                description: 'Grammatica essenziale, verbi irregolari, Business Letters ed email commerciali pronte.',
+                pages: 12,
                 format: 'PDF HD',
                 previewTopics: [
-                    'Formulario Montante e Valore Attuale',
-                    'Piani di Ammortamento Francese e Italiano',
-                    'Trucchi per non sbagliare i calcoli nei compiti'
+                    'Business Email & Commercial Correspondence',
+                    'Tenses, Conditionals & Passive Form',
+                    'Glossario dei termini economici inglesi'
                 ]
             },
             {
                 id: 'prod-5',
-                title: 'Inglese Commerciale (Business English)',
-                category: 'inglese',
-                categoryName: 'Inglese Commerciale',
-                price: 3.29,
-                badge: 'Pratico 🇬🇧',
-                icon: 'languages',
-                description: 'Glossario dei termini aziendali, modelli di Business Letter, email formali e presentazioni aziendali.',
-                pages: 11,
+                title: 'Spagnolo: Gramática y Lenguaje Comercial',
+                category: 'spagnolo',
+                categoryName: 'Spagnolo',
+                price: 3.49,
+                badge: 'Segunda Lengua 🇪🇸',
+                icon: 'globe',
+                description: 'Tiempos verbales, vocabulario comercial, cartas de presentación e intercambio comercial.',
+                pages: 12,
                 format: 'PDF HD',
                 previewTopics: [
-                    'Commercial Letters (Inquiries, Orders, Complaints)',
-                    'Vocabulary per Marketing e Finance',
-                    'Frasi pronte per le interrogazioni'
+                    'Tiempos del Pasado y Subjuntivo explicados',
+                    'Vocabulario de Empresa y Comercio',
+                    'Redacción de Cartas Comerciales'
                 ]
             },
             {
                 id: 'prod-6',
-                title: 'Mega Kit AFM All-In-One (Tutte le Materie)',
-                category: 'eco',
-                categoryName: 'Pacchetto Completo',
-                price: 8.99,
-                badge: 'SUPER OFFERTA 👑',
-                icon: 'sparkles',
-                description: 'Tutti gli schemi di Aurora per il 4° e 5° anno AFM raggruppati in un unico mega file PDF.',
-                pages: 85,
-                format: 'PDF HD Completo',
+                title: 'Italiano: Letteratura & Struttura del Saggio',
+                category: 'italiano',
+                categoryName: 'Italiano',
+                price: 3.99,
+                badge: 'Per la Prova Scritta ✍️',
+                icon: 'book-open-check',
+                description: 'Riassunti autori dal 1800 al 1900, schemi delle opere e guide alla stesura del Testo Argomentativo.',
+                pages: 20,
+                format: 'PDF HD',
                 previewTopics: [
-                    'Economia Aziendale + Diritto',
-                    'Informatica SQL + Matematica Finanziaria',
-                    'Inglese Commerciale + Metodo di Studio'
+                    'Verga, Pascoli, D\'Annunzio, Pirandello, Svevo',
+                    'Analisi del Testo e Saggio Breve',
+                    'Mappe dei temi principali delle opere'
+                ]
+            },
+            {
+                id: 'prod-7',
+                title: 'Storia: Dalla Rivoluzione Industriale al \'900',
+                category: 'storia',
+                categoryName: 'Storia',
+                price: 3.99,
+                badge: 'Linea del Tempo ⏳',
+                icon: 'hourglass',
+                description: 'Mappe cronologiche con date chiave, cause/conseguenze della Prima e Seconda Guerra Mondiale.',
+                pages: 18,
+                format: 'PDF HD',
+                previewTopics: [
+                    'Linee del tempo con eventi colorati',
+                    'Prima Guerra Mondiale e Rivoluzione Russa',
+                    'Totalitarismi e Guerra Fredda'
+                ]
+            },
+            {
+                id: 'prod-8',
+                title: 'Matematica: Formulario, Funzioni & Derivate',
+                category: 'matematica',
+                categoryName: 'Matematica',
+                price: 3.99,
+                badge: 'Formule & Esercizi 📊',
+                icon: 'binary',
+                description: 'Studio di funzione passo-passo, limiti, derivate, integrali e matematica finanziaria.',
+                pages: 15,
+                format: 'PDF HD',
+                previewTopics: [
+                    'Formulario completo di Studio di Funzione',
+                    'Tabella delle Derivate e Limiti Notevoli',
+                    'Interesse semplice/composto ed ammortamenti'
                 ]
             }
         ];
 
-        // State Management
-        let cart = [];
+        // Method score calculation
+        function updateMethodScore() {
+            const checkboxes = document.querySelectorAll('#page-metodo input[type="checkbox"]');
+            let checkedCount = 0;
+            checkboxes.forEach(cb => { if(cb.checked) checkedCount++; });
 
-        // App Initialization
-        document.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
-            renderProducts();
-            switchTab('home');
-        });
-
-        // Tab Navigation Logic
-        function switchTab(tabId) {
-            document.querySelectorAll('.page-content').forEach(el => el.classList.add('hidden'));
-            document.getElementById(`page-${tabId}`).classList.remove('hidden');
-
-            // Update nav button active states
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('bg-brand-600', 'text-white', 'shadow-sm');
-                btn.classList.add('text-slate-600');
-            });
-            
-            const activeBtn = document.getElementById(`nav-${tabId}`);
-            if(activeBtn) {
-                activeBtn.classList.add('bg-brand-600', 'text-white', 'shadow-sm');
-                activeBtn.classList.remove('text-slate-600');
+            const box = document.getElementById('method-score-box');
+            if(checkedCount === 0) {
+                box.textContent = 'Spunta le caselle qui sopra per testare la tua preparazione!';
+            } else if(checkedCount === 1) {
+                box.textContent = '💪 Buon inizio! Stai muovendo i primi passi verso uno studio attivo.';
+            } else if(checkedCount === 2) {
+                box.textContent = '⚡ Ottimo lavoro! Le tue mappe ti faranno risparmiare ore di ripasso.';
+            } else if(checkedCount === 3) {
+                box.textContent = '🔥 Super! Ripetere ad alta voce ti assicura il massimo voto nelle interrogazioni.';
+            } else if(checkedCount === 4) {
+                box.textContent = '👑 PERFETTO! Hai applicato il Metodo Aurora al 100%! La verifica andrà benissimo! 🎉';
             }
+        }
 
             // Scroll to top
             window.scrollTo({top: 0, behavior: 'smooth'});
