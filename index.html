@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AFM Notes Hub - Schemi & Guide per Studenti</title>
+    <title>Aurora's Notes - Schemi & Appunti AFM per Tutte le Materie</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
@@ -11,7 +11,7 @@
     <!-- Google Fonts Inter & Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -33,12 +33,6 @@
                             700: '#6d28d9', // Rich Dark Violet
                             800: '#5b21b6',
                             900: '#4c1d95', // Deep Plum
-                        },
-                        accent: {
-                            50: '#faf5ff',
-                            100: '#f3e8ff', // Very light lilac
-                            500: '#a855f7',
-                            600: '#9333ea',
                         }
                     }
                 }
@@ -47,7 +41,7 @@
     </script>
     <style>
         .glass {
-            background: rgba(255, 255, 255, 0.90);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
@@ -61,6 +55,38 @@
             background: #ddd6fe;
             border-radius: 4px;
         }
+        .sticker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            box-shadow: 0 2px 8px rgba(124, 58, 237, 0.15);
+            border: 2px solid #ffffff;
+            transform: rotate(-2deg);
+            transition: transform 0.2s ease;
+        }
+        .sticker:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+        .sticker-purple {
+            background: #ede9fe;
+            color: #5b21b6;
+        }
+        .sticker-yellow {
+            background: #fef08a;
+            color: #854d0e;
+        }
+        .sticker-pink {
+            background: #fbcfe8;
+            color: #9d174d;
+        }
+        .sticker-cyan {
+            background: #cffafe;
+            color: #155e75;
+        }
     </style>
 </head>
 <body class="bg-purple-50/40 text-slate-800 font-sans antialiased flex flex-col min-h-screen">
@@ -70,12 +96,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- Logo -->
             <a href="#" onclick="switchTab('home')" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-700 via-brand-600 to-brand-400 flex items-center justify-center text-white shadow-md shadow-brand-500/30 group-hover:scale-105 transition-transform">
-                    <i data-lucide="book-open-check" class="w-5 h-5"></i>
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-700 via-brand-600 to-brand-400 flex items-center justify-center text-white shadow-md shadow-brand-500/30 group-hover:scale-105 transition-transform">
+                    <i data-lucide="sparkles" class="w-6 h-6"></i>
                 </div>
                 <div>
-                    <span class="font-heading font-bold text-xl text-slate-900 tracking-tight block leading-none">AFM Notes<span class="text-brand-600">.</span></span>
-                    <span class="text-xs text-brand-700 font-medium">Content & Schemi Digitali</span>
+                    <span class="font-heading font-extrabold text-xl text-slate-900 tracking-tight block leading-none">Aurora's Notes<span class="text-brand-600">✨</span></span>
+                    <span class="text-xs text-brand-700 font-semibold">Schemi di Tutte le Materie AFM</span>
                 </div>
             </a>
 
@@ -119,79 +145,152 @@
         <!-- ================= PAGE 1: HOME ================= -->
         <div id="page-home" class="page-content space-y-16 pb-16">
             <!-- Hero Section -->
-            <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-gradient-to-b from-brand-100/60 via-purple-50/30 to-transparent">
+            <section class="relative pt-12 pb-20 md:pt-16 md:pb-24 overflow-hidden bg-gradient-to-b from-brand-100/70 via-purple-50/40 to-transparent">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div class="grid lg:grid-cols-12 gap-12 items-center">
                         <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-purple-200 text-brand-700 text-xs font-semibold uppercase tracking-wider shadow-sm">
-                                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-brand-500"></i> Per Studenti AFM (Istituto Tecnico Economico)
+                            
+                            <!-- Fun Stickers Row -->
+                            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-2">
+                                <span class="sticker sticker-purple">📚 Tutte le Materie AFM</span>
+                                <span class="sticker sticker-yellow">⚡ Mappe Visive & Formule</span>
+                                <span class="sticker sticker-pink">⭐ Voto 9+ Garantito</span>
                             </div>
-                            <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight">
-                                Schemi chiari e guide pratiche per superare l'AFM <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-700 via-brand-600 to-brand-400">senza impazzire.</span>
+
+                            <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-tight">
+                                Schemi pronti e appunti completi di <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-700 via-brand-600 to-brand-400">tutte le materie AFM</span>
                             </h1>
                             <p class="text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                                Mappe concettuali ad alta efficacia, formule di Economia Aziendale, codici di Diritto e appunti d'Informatica creati da chi vive la scuola ogni giorno.
+                                Ciao! Sono <strong>Aurora</strong>. Ho preparato riassunti sintetici, mappe colorate ed esercizi svolti di Economia Aziendale, Diritto, Politica, Informatica, Matematica Finanziaria e Inglese Commerciale!
                             </p>
                             <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-                                <button onclick="switchTab('shop')" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold shadow-lg shadow-brand-600/30 transition-all flex items-center justify-center gap-2 group">
-                                    Esplora i Pacchetti Schemi
+                                <button onclick="switchTab('shop')" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-bold shadow-lg shadow-brand-600/30 transition-all flex items-center justify-center gap-2 group">
+                                    <i data-lucide="book-open" class="w-5 h-5"></i>
+                                    Tutti gli Schemi per Materia
                                     <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                                 </button>
-                                <button onclick="openBlogArticle('art-1')" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-white border border-purple-200 text-brand-800 font-semibold hover:bg-brand-50/50 transition-all flex items-center justify-center gap-2 shadow-sm">
-                                    <i data-lucide="book-open" class="w-4 h-4 text-brand-600"></i> Leggi la Guida Gratuita
+                                <button onclick="openBlogArticle('art-1')" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-white border border-purple-200 text-brand-800 font-bold hover:bg-brand-50/60 transition-all flex items-center justify-center gap-2 shadow-sm">
+                                    <i data-lucide="sparkles" class="w-4 h-4 text-brand-600"></i> Leggi la Guida Gratuita
                                 </button>
                             </div>
                             
                             <!-- Trust badges -->
-                            <div class="pt-6 border-t border-purple-100 flex items-center justify-center lg:justify-start gap-8 text-xs font-medium text-slate-500">
+                            <div class="pt-6 border-t border-purple-100 flex items-center justify-center lg:justify-start gap-6 text-xs font-semibold text-slate-600">
                                 <div class="flex items-center gap-1.5">
                                     <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600"></i> Download PDF Immediato
                                 </div>
                                 <div class="flex items-center gap-1.5">
-                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600"></i> Aggiornato al Programma 2026
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600"></i> 3°, 4° e 5° Anno AFM
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Hero Graphic / Mockup -->
+                        <!-- Hero Visual Card with Graphic Illustrations -->
                         <div class="lg:col-span-5 relative">
                             <div class="relative mx-auto max-w-md lg:max-w-none">
-                                <div class="absolute -top-6 -left-6 w-72 h-72 bg-brand-300/30 rounded-full blur-3xl"></div>
-                                <div class="relative bg-white rounded-2xl shadow-xl p-6 border border-purple-100 space-y-4 transform hover:-translate-y-1 transition-transform duration-300">
-                                    <div class="flex items-center justify-between pb-4 border-b border-purple-50">
-                                        <div class="flex items-center gap-3">
-                                            <div class="w-10 h-10 rounded-lg bg-brand-100 text-brand-700 flex items-center justify-center font-bold">
-                                                PDF
-                                            </div>
-                                            <div>
-                                                <h4 class="font-bold text-slate-900 text-sm">Kit Completo 4° Anno AFM</h4>
-                                                <p class="text-xs text-brand-600 font-medium">Economia Aziendale + Diritto</p>
-                                            </div>
-                                        </div>
-                                        <span class="text-brand-700 font-extrabold text-lg">€ 4,99</span>
+                                <div class="absolute -top-6 -left-6 w-72 h-72 bg-brand-300/40 rounded-full blur-3xl"></div>
+                                
+                                <div class="relative bg-white rounded-3xl shadow-xl p-6 border-2 border-purple-100 space-y-4 transform hover:-translate-y-1 transition-transform duration-300">
+                                    
+                                    <!-- Sticker Decorative Pin -->
+                                    <div class="absolute -top-4 -right-2 rotate-6">
+                                        <span class="sticker sticker-yellow">✨ Creati da Aurora</span>
                                     </div>
-                                    <div class="space-y-2 text-xs text-slate-600">
-                                        <div class="flex items-center gap-2 bg-brand-50/60 p-2.5 rounded-lg border border-purple-50">
-                                            <i data-lucide="file-text" class="w-4 h-4 text-brand-600"></i>
-                                            <span>Mappe concettuali Scrittura Doppia & Bilancio</span>
+
+                                    <!-- Cover Art Image Placeholder -->
+                                    <div class="h-44 rounded-2xl bg-gradient-to-tr from-brand-700 via-brand-600 to-purple-400 p-5 text-white flex flex-col justify-between relative overflow-hidden">
+                                        <div class="absolute top-2 right-2 opacity-15">
+                                            <i data-lucide="graduation-cap" class="w-32 h-32"></i>
                                         </div>
-                                        <div class="flex items-center gap-2 bg-brand-50/60 p-2.5 rounded-lg border border-purple-50">
-                                            <i data-lucide="file-text" class="w-4 h-4 text-brand-600"></i>
-                                            <span>Schemi Diritto Pubblico e Fiscale</span>
+                                        <div class="flex items-center justify-between z-10">
+                                            <span class="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-xs font-bold">PDF STAMPABILE</span>
+                                            <span class="text-xs font-bold bg-amber-300 text-amber-950 px-2.5 py-0.5 rounded-full">★ Top Recensito</span>
                                         </div>
-                                        <div class="flex items-center gap-2 bg-brand-50/60 p-2.5 rounded-lg border border-purple-50">
-                                            <i data-lucide="file-text" class="w-4 h-4 text-brand-600"></i>
-                                            <span>Esercizi svolti passo-passo</span>
+                                        <div class="z-10">
+                                            <h3 class="font-heading font-extrabold text-xl leading-tight">Mega Kit AFM All-In-One</h3>
+                                            <p class="text-xs text-purple-100 font-medium mt-1">Economia + Diritto + Info + Matematica + Inglese</p>
                                         </div>
                                     </div>
-                                    <button onclick="addToCart('prod-1')" class="w-full py-3 bg-brand-700 hover:bg-brand-800 text-white font-semibold text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
-                                        <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
-                                        Aggiungi al Carrello
-                                    </button>
+
+                                    <div class="flex items-center justify-between pt-1">
+                                        <div>
+                                            <span class="text-xs text-slate-400 block font-medium">Pacchetto Completo 4°/5° Anno</span>
+                                            <span class="text-brand-700 font-black text-2xl">€ 8,99</span>
+                                        </div>
+                                        <button onclick="addToCart('prod-6')" class="px-5 py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center gap-1.5">
+                                            <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                                            Aggiungi
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="space-y-2 text-xs text-slate-600 pt-2 border-t border-purple-50">
+                                        <div class="flex items-center gap-2 bg-brand-50/70 p-2 rounded-xl">
+                                            <i data-lucide="file-check-2" class="w-4 h-4 text-brand-600 flex-shrink-0"></i>
+                                            <span><strong>85 Pagine</strong> di schemi lilla a colori HD</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 bg-brand-50/70 p-2 rounded-xl">
+                                            <i data-lucide="file-check-2" class="w-4 h-4 text-brand-600 flex-shrink-0"></i>
+                                            <span>Tutte le 6 materie d'indirizzo AFM</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <!-- All Subjects Cards Overview Grid -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+                <div class="text-center max-w-2xl mx-auto space-y-2">
+                    <span class="sticker sticker-purple">🎨 Organizzati per Materia</span>
+                    <h2 class="font-heading text-3xl font-extrabold text-slate-900">Scegli la Materia che vuoi Superare</h2>
+                    <p class="text-slate-600 text-sm">Tutti gli schemi sono scritti e graficizzati da me (Aurora) in formato PDF digitale.</p>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                    <!-- Subject Badge 1 -->
+                    <button onclick="switchTab('shop'); filterShop('eco');" class="bg-white p-4 rounded-2xl border border-purple-100 hover:border-brand-500 hover:shadow-md transition-all text-center space-y-2 group">
+                        <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="calculator" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-900">Economia Aziendale</h4>
+                    </button>
+                    <!-- Subject Badge 2 -->
+                    <button onclick="switchTab('shop'); filterShop('diritto');" class="bg-white p-4 rounded-2xl border border-purple-100 hover:border-brand-500 hover:shadow-md transition-all text-center space-y-2 group">
+                        <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-700 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="scale" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-900">Diritto Pubblico & Privato</h4>
+                    </button>
+                    <!-- Subject Badge 3 -->
+                    <button onclick="switchTab('shop'); filterShop('info');" class="bg-white p-4 rounded-2xl border border-purple-100 hover:border-brand-500 hover:shadow-md transition-all text-center space-y-2 group">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-700 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="database" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-900">Informatica & SQL</h4>
+                    </button>
+                    <!-- Subject Badge 4 -->
+                    <button onclick="switchTab('shop'); filterShop('matematica');" class="bg-white p-4 rounded-2xl border border-purple-100 hover:border-brand-500 hover:shadow-md transition-all text-center space-y-2 group">
+                        <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="line-chart" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-900">Matematica Finanziaria</h4>
+                    </button>
+                    <!-- Subject Badge 5 -->
+                    <button onclick="switchTab('shop'); filterShop('inglese');" class="bg-white p-4 rounded-2xl border border-purple-100 hover:border-brand-500 hover:shadow-md transition-all text-center space-y-2 group">
+                        <div class="w-12 h-12 rounded-xl bg-pink-100 text-pink-700 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="languages" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-900">Inglese Commerciale</h4>
+                    </button>
+                    <!-- Subject Badge 6 -->
+                    <button onclick="switchTab('shop'); filterShop('metodo');" class="bg-white p-4 rounded-2xl border border-purple-100 hover:border-brand-500 hover:shadow-md transition-all text-center space-y-2 group">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="brain" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-900">Metodo di Studio</h4>
+                    </button>
                 </div>
             </section>
 
@@ -200,7 +299,7 @@
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
                     <div>
                         <h2 class="font-heading text-2xl sm:text-3xl font-bold text-slate-900">Gli Schemi più Venduti</h2>
-                        <p class="text-slate-600 text-sm mt-1">Sintesi visive pronte per la stampa o da consultare su iPad e Tablet.</p>
+                        <p class="text-slate-600 text-sm mt-1">Sintesi visive pronte per la stampa o da consultare su tablet.</p>
                     </div>
                     <button onclick="switchTab('shop')" class="mt-4 md:mt-0 text-brand-700 hover:text-brand-800 font-semibold text-sm flex items-center gap-1">
                         Vedi tutti i prodotti <i data-lucide="chevron-right" class="w-4 h-4"></i>
@@ -215,15 +314,13 @@
             <!-- Latest Blog Articles Preview -->
             <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-gradient-to-br from-brand-900 via-brand-800 to-purple-950 rounded-3xl p-8 sm:p-12 text-white shadow-xl relative overflow-hidden">
-                    <div class="relative z-10 max-w-3xl">
-                        <span class="inline-block px-3 py-1 rounded-md bg-white/10 text-purple-200 border border-white/20 text-xs font-semibold uppercase mb-4 backdrop-blur-sm">
-                            Guida del Mese
-                        </span>
-                        <h2 class="font-heading text-2xl sm:text-4xl font-bold mb-4">Come capire la Partita Doppia e il Bilancio d'Esercizio senza impazzire</h2>
-                        <p class="text-purple-100 mb-6 text-sm sm:text-base leading-relaxed">
-                            Hai difficoltà a bilanciare il DARE e l'AVVERE? Ti spieghiamo i concetti chiave con un metodo visivo semplice, prima di passare agli schemi avanzati.
+                    <div class="relative z-10 max-w-3xl space-y-4">
+                        <span class="sticker sticker-yellow">📝 Guida In Evidenza</span>
+                        <h2 class="font-heading text-2xl sm:text-4xl font-extrabold leading-tight">Come capire la Partita Doppia e il Bilancio d'Esercizio senza impazzire</h2>
+                        <p class="text-purple-100 text-sm sm:text-base leading-relaxed">
+                            Hai difficoltà a bilanciare il DARE e l'AVVERE? In questa guida ti spiego il mio metodo logico e visivo per superare i compiti in classe di Economia Aziendale.
                         </p>
-                        <button onclick="openBlogArticle('art-1')" class="px-6 py-3 bg-white text-brand-900 rounded-xl font-bold hover:bg-brand-50 transition-colors inline-flex items-center gap-2 shadow-lg">
+                        <button onclick="openBlogArticle('art-1')" class="px-6 py-3.5 bg-white text-brand-900 rounded-2xl font-bold hover:bg-brand-50 transition-colors inline-flex items-center gap-2 shadow-lg text-sm">
                             Leggi l'Articolo Integrale
                             <i data-lucide="arrow-right" class="w-4 h-4 text-brand-700"></i>
                         </button>
@@ -235,17 +332,20 @@
         <!-- ================= PAGE 2: SHOP ================= -->
         <div id="page-shop" class="page-content hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
             <div class="text-center max-w-2xl mx-auto space-y-2">
-                <h1 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900">Shop Schemi Digitali</h1>
-                <p class="text-slate-600 text-sm">Scarica istantaneamente i file PDF formattati e pronti per essere studiati o stampati.</p>
+                <span class="sticker sticker-purple">🛒 Catalogo Appunti</span>
+                <h1 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900">Shop Schemi Digitali PDF</h1>
+                <p class="text-slate-600 text-sm">Scarica subito gli appunti lilla di Aurora, formattati in alta risoluzione.</p>
             </div>
 
             <!-- Subject Category Filters -->
             <div class="flex flex-wrap items-center justify-center gap-2 pt-2">
-                <button onclick="filterShop('all')" class="shop-filter-btn px-4 py-2 rounded-xl text-sm font-semibold bg-brand-600 text-white shadow-sm" data-cat="all">Tutti</button>
-                <button onclick="filterShop('eco')" class="shop-filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="eco">Economia Aziendale</button>
-                <button onclick="filterShop('diritto')" class="shop-filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="diritto">Diritto & Economia Politica</button>
-                <button onclick="filterShop('info')" class="shop-filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="info">Informatica & Tech</button>
-                <button onclick="filterShop('metodo')" class="shop-filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="metodo">Metodo di Studio</button>
+                <button onclick="filterShop('all')" class="shop-filter-btn px-4 py-2 rounded-full text-xs font-bold bg-brand-600 text-white shadow-sm" data-cat="all">Tutti</button>
+                <button onclick="filterShop('eco')" class="shop-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="eco">Economia Aziendale</button>
+                <button onclick="filterShop('diritto')" class="shop-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="diritto">Diritto & Politica</button>
+                <button onclick="filterShop('info')" class="shop-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="info">Informatica</button>
+                <button onclick="filterShop('matematica')" class="shop-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="matematica">Matematica Finanziaria</button>
+                <button onclick="filterShop('inglese')" class="shop-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="inglese">Inglese Commerciale</button>
+                <button onclick="filterShop('metodo')" class="shop-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-purple-200 text-slate-700 hover:bg-brand-50" data-cat="metodo">Metodo di Studio</button>
             </div>
 
             <!-- Shop Products Grid -->
@@ -259,16 +359,17 @@
             <!-- Article List Mode -->
             <div id="blog-list-view" class="space-y-8">
                 <div class="text-center max-w-2xl mx-auto space-y-2">
-                    <h1 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900">Blog & Guide Pratiche</h1>
-                    <p class="text-slate-600 text-sm">Spiegazioni semplici, consigli di memoria visiva e trucchi per le verifiche.</p>
+                    <span class="sticker sticker-cyan">💡 Consigli di Aurora</span>
+                    <h1 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900">Blog & Guide di Studio AFM</h1>
+                    <p class="text-slate-600 text-sm">Trucchi di memoria visiva, schemi di ripasso e spiegazioni semplici per tutte le materie.</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Blog Card 1 -->
-                    <article class="bg-white rounded-2xl border border-purple-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
-                        <div class="h-48 bg-gradient-to-r from-brand-700 to-brand-500 p-6 text-white flex flex-col justify-between">
-                            <span class="self-start px-2.5 py-1 rounded-md bg-white/20 text-xs font-semibold backdrop-blur-md">Economia Aziendale</span>
-                            <i data-lucide="calculator" class="w-10 h-10 opacity-80"></i>
+                    <article class="bg-white rounded-3xl border border-purple-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                        <div class="h-48 bg-gradient-to-r from-brand-700 to-brand-500 p-6 text-white flex flex-col justify-between relative">
+                            <span class="self-start px-3 py-1 rounded-full bg-white/20 text-xs font-bold backdrop-blur-md">Economia Aziendale</span>
+                            <i data-lucide="calculator" class="w-12 h-12 opacity-80 self-end"></i>
                         </div>
                         <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
                             <div>
@@ -280,8 +381,8 @@
                                 </p>
                             </div>
                             <div class="pt-4 border-t border-purple-50 flex items-center justify-between">
-                                <span class="text-xs text-slate-400">Lettura: 5 min</span>
-                                <button onclick="openBlogArticle('art-1')" class="text-brand-600 font-semibold text-xs flex items-center gap-1 hover:underline">
+                                <span class="text-xs text-slate-400 font-medium">Autore: Aurora • 5 min</span>
+                                <button onclick="openBlogArticle('art-1')" class="text-brand-600 font-bold text-xs flex items-center gap-1 hover:underline">
                                     Leggi guida <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
                                 </button>
                             </div>
@@ -289,10 +390,10 @@
                     </article>
 
                     <!-- Blog Card 2 -->
-                    <article class="bg-white rounded-2xl border border-purple-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
-                        <div class="h-48 bg-gradient-to-r from-brand-800 to-purple-600 p-6 text-white flex flex-col justify-between">
-                            <span class="self-start px-2.5 py-1 rounded-md bg-white/20 text-xs font-semibold backdrop-blur-md">Diritto</span>
-                            <i data-lucide="scale" class="w-10 h-10 opacity-80"></i>
+                    <article class="bg-white rounded-3xl border border-purple-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                        <div class="h-48 bg-gradient-to-r from-purple-800 to-brand-600 p-6 text-white flex flex-col justify-between relative">
+                            <span class="self-start px-3 py-1 rounded-full bg-white/20 text-xs font-bold backdrop-blur-md">Diritto</span>
+                            <i data-lucide="scale" class="w-12 h-12 opacity-80 self-end"></i>
                         </div>
                         <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
                             <div>
@@ -304,8 +405,8 @@
                                 </p>
                             </div>
                             <div class="pt-4 border-t border-purple-50 flex items-center justify-between">
-                                <span class="text-xs text-slate-400">Lettura: 4 min</span>
-                                <button onclick="openBlogArticle('art-2')" class="text-brand-600 font-semibold text-xs flex items-center gap-1 hover:underline">
+                                <span class="text-xs text-slate-400 font-medium">Autore: Aurora • 4 min</span>
+                                <button onclick="openBlogArticle('art-2')" class="text-brand-600 font-bold text-xs flex items-center gap-1 hover:underline">
                                     Leggi guida <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
                                 </button>
                             </div>
@@ -313,23 +414,23 @@
                     </article>
 
                     <!-- Blog Card 3 -->
-                    <article class="bg-white rounded-2xl border border-purple-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
-                        <div class="h-48 bg-gradient-to-r from-purple-700 to-brand-400 p-6 text-white flex flex-col justify-between">
-                            <span class="self-start px-2.5 py-1 rounded-md bg-white/20 text-xs font-semibold backdrop-blur-md">Metodo di Studio</span>
-                            <i data-lucide="brain" class="w-10 h-10 opacity-80"></i>
+                    <article class="bg-white rounded-3xl border border-purple-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                        <div class="h-48 bg-gradient-to-r from-indigo-700 to-purple-500 p-6 text-white flex flex-col justify-between relative">
+                            <span class="self-start px-3 py-1 rounded-full bg-white/20 text-xs font-bold backdrop-blur-md">Matematica Finanziaria</span>
+                            <i data-lucide="line-chart" class="w-12 h-12 opacity-80 self-end"></i>
                         </div>
                         <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
                             <div>
                                 <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">
-                                    Come strutturare mappe concettuali per materie economiche
+                                    Interesse Semplice vs Composto: Formule da ricordare
                                 </h3>
                                 <p class="text-slate-600 text-xs leading-relaxed line-clamp-3">
-                                    I trucchi per sintetizzare un capitolo di 30 pagine in una singola mappa visiva a colori.
+                                    Sconto, montante e regime di capitalizzazione: ecco il formulario essenziale con la spiegazione dei singoli simboli.
                                 </p>
                             </div>
                             <div class="pt-4 border-t border-purple-50 flex items-center justify-between">
-                                <span class="text-xs text-slate-400">Lettura: 6 min</span>
-                                <button onclick="openBlogArticle('art-3')" class="text-brand-600 font-semibold text-xs flex items-center gap-1 hover:underline">
+                                <span class="text-xs text-slate-400 font-medium">Autore: Aurora • 6 min</span>
+                                <button onclick="openBlogArticle('art-3')" class="text-brand-600 font-bold text-xs flex items-center gap-1 hover:underline">
                                     Leggi guida <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
                                 </button>
                             </div>
@@ -339,16 +440,16 @@
             </div>
 
             <!-- Single Article Reading View -->
-            <div id="blog-single-view" class="hidden max-w-3xl mx-auto space-y-8 bg-white p-6 sm:p-10 rounded-2xl border border-purple-100 shadow-sm">
-                <button onclick="closeBlogArticle()" class="text-slate-500 hover:text-brand-700 text-sm font-semibold flex items-center gap-2 mb-4">
+            <div id="blog-single-view" class="hidden max-w-3xl mx-auto space-y-8 bg-white p-6 sm:p-10 rounded-3xl border border-purple-100 shadow-sm">
+                <button onclick="closeBlogArticle()" class="text-slate-500 hover:text-brand-700 text-sm font-bold flex items-center gap-2 mb-4">
                     <i data-lucide="arrow-left" class="w-4 h-4"></i> Torna a tutti gli articoli
                 </button>
 
                 <div class="space-y-4 border-b border-purple-50 pb-6">
-                    <span class="px-3 py-1 rounded-md bg-brand-50 text-brand-700 text-xs font-semibold uppercase border border-purple-100">Economia Aziendale</span>
-                    <h1 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900">Come capire la Partita Doppia e il Bilancio d'Esercizio senza impazzire</h1>
-                    <div class="flex items-center gap-4 text-xs text-slate-500">
-                        <span>Di: Martina (Studente AFM)</span>
+                    <span class="sticker sticker-purple">Economia Aziendale</span>
+                    <h1 class="font-heading text-3xl sm:text-4xl font-black text-slate-900">Come capire la Partita Doppia e il Bilancio d'Esercizio senza impazzire</h1>
+                    <div class="flex items-center gap-3 text-xs text-slate-500 font-medium">
+                        <span>Scritto da <strong>Aurora</strong> (Studentessa AFM)</span>
                         <span>•</span>
                         <span>Tempo di lettura: 5 min</span>
                     </div>
@@ -357,52 +458,45 @@
                 <!-- Article Body -->
                 <div class="prose prose-slate max-w-none text-slate-700 space-y-6 leading-relaxed text-sm sm:text-base">
                     <p class="text-lg text-slate-600 font-medium">
-                        Se fai il terzo o quarto anno dell'Istituto Tecnico Economico (AFM), ti sarai scontrato almeno una volta con la Partita Doppia. Molti cercano di imparare i conti a memoria, ma questo è il modo più veloce per sbagliare la verifica.
+                        Se stai frequentando l'AFM, ti sarai scontrato almeno una volta con la Partita Doppia. Imparare i conti a memoria è stancante e rischioso per la verifica: vediamo la logica!
                     </p>
 
-                    <h3 class="font-heading font-bold text-xl text-slate-900 pt-2">1. La regola fondamentale: Ogni operazione ha due facce</h3>
+                    <h3 class="font-heading font-bold text-xl text-slate-900 pt-2">1. La regola aurea: Aspetto Finanziario vs Economico</h3>
                     <p>
-                        Pensa a qualsiasi operazione aziendale come ad uno scambio. Se compri delle merci per 1.000 €:
+                        Pensa ad ogni operazione aziendale come a due lati della stessa medaglia. Quando la tua azienda compra merci per 1.000 €:
                     </p>
                     <ul class="list-disc pl-5 space-y-1">
-                        <td><strong>Aspetto Finanziario:</strong> Hai un'uscita di denaro (o un debito verso fornitori).</td>
-                        <td><strong>Aspetto Economico:</strong> Hai sostenuto un costo per l'acquisto di merci.</td>
+                        <td><strong>Aspetto Finanziario:</strong> Esce denaro o sorge un debito verso fornitori.</td>
+                        <td><strong>Aspetto Economico:</strong> Nasce il costo per l'acquisto di merci.</td>
                     </ul>
 
-                    <div class="bg-brand-50 border-l-4 border-brand-500 p-4 rounded-r-lg text-brand-900 text-sm">
-                        <strong>Trucco rapido per il DARE / AVERE:</strong><br>
-                        • Variazioni Finanziarie Positive (Entrate di cassa, +Crediti) vanno sempre in <strong>DARE</strong>.<br>
-                        • Variazioni Finanziarie Negative (Uscite di cassa, +Debiti) vanno sempre in <strong>AVERE</strong>.
+                    <div class="bg-brand-50 border-l-4 border-brand-500 p-4 rounded-r-2xl text-brand-900 text-sm font-medium">
+                        <strong>📌 Il trucco nei miei schemi:</strong><br>
+                        • Variazioni Finanziarie Positive (Cassa +, Crediti +) ➔ <strong>DARE</strong><br>
+                        • Variazioni Finanziarie Negative (Cassa -, Debiti +) ➔ <strong>AVERE</strong>
                     </div>
 
-                    <h3 class="font-heading font-bold text-xl text-slate-900 pt-2">2. Il passaggio dalle Scritture al Bilancio</h3>
-                    <p>
-                        A fine anno, tutti i conti accesi ai costi e ricavi confluiscono nel <strong>Conto Economico</strong>, mentre i conti finanziari e patrimoniali vanno nello <strong>Stato Patrimoniale</strong>.
-                    </p>
-
                     <!-- INTEGRATED PRODUCT BUY-BOX IN ARTICLE -->
-                    <div class="my-8 bg-gradient-to-br from-brand-50 via-purple-50 to-white border border-brand-200 rounded-2xl p-6 sm:p-8 space-y-4 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
-                        <div class="space-y-2">
-                            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-600 text-white text-xs font-bold">
-                                <i data-lucide="zap" class="w-3 h-3"></i> Ripasso Rapido
-                            </div>
-                            <h4 class="font-heading font-bold text-slate-900 text-lg sm:text-xl">Vuoi ripassare tutto il programma con schemi già pronti?</h4>
+                    <div class="my-8 bg-gradient-to-br from-brand-50 via-purple-50 to-white border-2 border-brand-200 rounded-3xl p-6 sm:p-8 space-y-4 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm relative overflow-hidden">
+                        <div class="space-y-2 relative z-10">
+                            <span class="sticker sticker-yellow">⚡ Schemi di Aurora</span>
+                            <h4 class="font-heading font-extrabold text-slate-900 text-lg sm:text-xl">Vuoi ripassare tutto il programma con le mie mappe pronte?</h4>
                             <p class="text-xs text-slate-600 max-w-md">
-                                Scarica il <strong>Pacchetto Schemi Economia 4° Anno</strong>: 18 pagine di schemi visivi lilla e viola, regole DARE/AVERE e bilancio d'esercizio pronti da stampare.
+                                Scarica il <strong>Pacchetto Schemi Economia 4° Anno</strong>: schemi visivi lilla e viola, tabelle DARE/AVERE e bilanci d'esercizio stampabili.
                             </p>
                         </div>
-                        <div class="flex-shrink-0 space-y-2 w-full sm:w-auto">
+                        <div class="flex-shrink-0 space-y-2 w-full sm:w-auto relative z-10">
                             <button onclick="addToCart('prod-1')" class="w-full sm:w-auto px-6 py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
                                 <i data-lucide="download" class="w-4 h-4"></i>
                                 Scarica il Pacchetto a 4,99 €
                             </button>
-                            <p class="text-center text-[10px] text-slate-500">Download immediato in formato PDF</p>
+                            <p class="text-center text-[10px] text-slate-500">Download immediato PDF</p>
                         </div>
                     </div>
 
                     <h3 class="font-heading font-bold text-xl text-slate-900 pt-2">Conclusione</h3>
                     <p>
-                        Non disperare! Una volta compresa la logica duale della Partita Doppia, la contabilità diventa come un puzzle logico. Continua ad esercitarti con casi pratici reali.
+                        Una volta memorizzati gli automatismi visivi, far quadrare i mastrini diventa semplicissimo. Buon ripasso!
                     </p>
                 </div>
             </div>
@@ -413,35 +507,46 @@
             <div class="bg-white rounded-3xl border border-purple-100 p-8 sm:p-12 shadow-sm grid md:grid-cols-12 gap-8 items-center">
                 <div class="md:col-span-5 flex justify-center">
                     <div class="relative">
-                        <div class="w-48 h-48 sm:w-64 sm:h-64 rounded-2xl bg-gradient-to-tr from-brand-600 via-brand-500 to-purple-300 p-1.5 shadow-xl">
-                            <div class="w-full h-full bg-brand-50/50 rounded-xl overflow-hidden flex items-center justify-center text-slate-400 font-bold border border-purple-100">
-                                <div class="text-center p-4">
-                                    <i data-lucide="user" class="w-16 h-16 mx-auto text-brand-600 mb-2"></i>
-                                    <span class="text-slate-800 font-heading text-lg font-bold">Martina</span>
-                                    <p class="text-xs text-brand-700 font-medium">Studentessa 4° AFM</p>
+                        <!-- Decorative sticker -->
+                        <div class="absolute -top-4 -left-4 z-10">
+                            <span class="sticker sticker-yellow">✨ Ideatrice di Aurora's Notes</span>
+                        </div>
+
+                        <!-- Illustrated Profile Frame -->
+                        <div class="w-56 h-56 sm:w-64 sm:h-64 rounded-3xl bg-gradient-to-tr from-brand-600 via-brand-500 to-purple-300 p-2 shadow-xl">
+                            <div class="w-full h-full bg-brand-50 rounded-2xl flex flex-col items-center justify-center p-6 text-center border border-purple-100 space-y-3">
+                                <div class="w-20 h-20 rounded-full bg-brand-200 text-brand-700 flex items-center justify-center shadow-inner">
+                                    <i data-lucide="user-check" class="w-10 h-10"></i>
                                 </div>
+                                <div>
+                                    <h3 class="font-heading text-xl font-extrabold text-slate-900">Aurora</h3>
+                                    <p class="text-xs text-brand-700 font-bold">Studentessa AFM</p>
+                                </div>
+                                <span class="text-[11px] bg-white px-3 py-1 rounded-full text-slate-600 font-semibold border border-purple-100">
+                                    💜 Sfumature Lilla & Viola
+                                </span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="md:col-span-7 space-y-4">
-                    <span class="px-3 py-1 rounded-md bg-brand-50 text-brand-700 text-xs font-semibold uppercase border border-purple-100">La mia storia</span>
-                    <h1 class="font-heading text-3xl font-bold text-slate-900">Ciao, sono Martina! 👋</h1>
+                    <span class="sticker sticker-purple">La mia Storia</span>
+                    <h1 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900">Ciao, sono Aurora! 👋</h1>
                     <p class="text-slate-600 text-sm leading-relaxed">
-                        Frequento il quarto anno dell'Istituto Tecnico Economico (AFM). Quando ho iniziato il triennio, mi sono resa conto di quanto fossero prolissi e complessi i libri di testo di Economia e Diritto.
+                        Frequento l'Istituto Tecnico Economico (AFM). Quando ho iniziato il triennio, mi sono resa conto di quanto i manuali di <strong>Economia, Diritto, Informatica e Matematica</strong> fossero lunghi e difficili da memorizzare tutti insieme.
                     </p>
                     <p class="text-slate-600 text-sm leading-relaxed">
-                        Ho iniziato così a riassumere ogni capitolo trasformando le parole in <strong>mappe concettuali ad alto impatto visivo</strong> con sfumature lilla e viola, schematizzando articoli di codice e formule di bilancio. I miei compagni di classe hanno iniziato a chiedermeli prima di ogni verifica... ed è nato questo progetto!
+                        Ho cominciato così a sintetizzare capitolo per capitolo, creando <strong>mappe concettuali grafiche in toni lilla e viola</strong>, con schemi di codice, formule e definizioni chiare. Dopo aver aiutato i miei compagni di classe a prendere voti alti, ho deciso di mettere a disposizione i miei appunti per tutti gli studenti AFM d'Italia!
                     </p>
                     <div class="pt-4 grid grid-cols-2 gap-4">
-                        <div class="p-4 rounded-xl bg-brand-50/50 border border-purple-100">
-                            <h4 class="font-bold text-brand-700 text-2xl font-heading">100%</h4>
-                            <p class="text-xs text-slate-500">Orientato al programma AFM</p>
+                        <div class="p-4 rounded-2xl bg-brand-50/70 border border-purple-100 text-center">
+                            <h4 class="font-extrabold text-brand-700 text-2xl font-heading">6/6</h4>
+                            <p class="text-xs text-slate-500 font-semibold">Tutte le materie AFM coperti</p>
                         </div>
-                        <div class="p-4 rounded-xl bg-brand-50/50 border border-purple-100">
-                            <h4 class="font-bold text-brand-700 text-2xl font-heading">PDF</h4>
-                            <p class="text-xs text-slate-500">Pronti da stampare o annotare</p>
+                        <div class="p-4 rounded-2xl bg-brand-50/70 border border-purple-100 text-center">
+                            <h4 class="font-extrabold text-brand-700 text-2xl font-heading">PDF HD</h4>
+                            <p class="text-xs text-slate-500 font-semibold">Pronti per la stampa o GoodNotes</p>
                         </div>
                     </div>
                 </div>
@@ -451,51 +556,54 @@
         <!-- ================= PAGE 5: CONTATTI ================= -->
         <div id="page-contact" class="page-content hidden max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
             <div class="text-center space-y-2">
-                <h1 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900">Hai domande o vuoi schemi personalizzati?</h1>
-                <p class="text-slate-600 text-sm">Scrivimi per informazioni sui pacchetti o per richiedere appunti su un argomento specifico.</p>
+                <span class="sticker sticker-pink">💌 Chiedi ad Aurora</span>
+                <h1 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900">Domande o Schemi Su Misura?</h1>
+                <p class="text-slate-600 text-sm">Scrivimi se hai bisogno di chiarimenti o se vuoi richiedere appunti per un argomento specifico.</p>
             </div>
 
-            <div class="bg-white rounded-2xl border border-purple-100 p-6 sm:p-10 shadow-sm">
+            <div class="bg-white rounded-3xl border border-purple-100 p-6 sm:p-10 shadow-sm">
                 <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-6">
                     <div class="grid sm:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-xs font-semibold text-slate-700 uppercase mb-2">Nome e Cognome</label>
-                            <input type="text" required placeholder="Es. Marco Rossi" class="w-full px-4 py-3 rounded-xl border border-purple-100 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm bg-purple-50/20">
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Il tuo Nome</label>
+                            <input type="text" required placeholder="Es. Marco" class="w-full px-4 py-3 rounded-xl border border-purple-100 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm bg-purple-50/30">
                         </div>
                         <div>
-                            <label class="block text-xs font-semibold text-slate-700 uppercase mb-2">Email</label>
-                            <input type="email" required placeholder="tua@email.it" class="w-full px-4 py-3 rounded-xl border border-purple-100 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm bg-purple-50/20">
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">La tua Email</label>
+                            <input type="email" required placeholder="tua@email.it" class="w-full px-4 py-3 rounded-xl border border-purple-100 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm bg-purple-50/30">
                         </div>
                     </div>
 
                     <div class="grid sm:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-xs font-semibold text-slate-700 uppercase mb-2">Anno scolastico</label>
-                            <select class="w-full px-4 py-3 rounded-xl border border-purple-100 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm bg-purple-50/20">
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Anno Scolastico</label>
+                            <select class="w-full px-4 py-3 rounded-xl border border-purple-100 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm bg-purple-50/30">
                                 <option>3° Anno AFM</option>
                                 <option selected>4° Anno AFM</option>
                                 <option>5° Anno AFM / Maturità</option>
-                                <option>Altro / Altro Indirizzo</option>
+                                <option>Altro Indirizzo Tecnico</option>
                             </select>
                         </div>
                         <div>
-                            <label class="block text-xs font-semibold text-slate-700 uppercase mb-2">Materia di interesse</label>
-                            <select class="w-full px-4 py-3 rounded-xl border border-purple-100 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm bg-purple-50/20">
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Materia Richiesta</label>
+                            <select class="w-full px-4 py-3 rounded-xl border border-purple-100 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm bg-purple-50/30">
                                 <option>Economia Aziendale</option>
                                 <option>Diritto & Politica</option>
-                                <option>Informatica</option>
-                                <option>Richiesta Schemi Su Misura</option>
+                                <option>Informatica & SQL</option>
+                                <option>Matematica Finanziaria</option>
+                                <option>Inglese Commerciale</option>
+                                <option>Richiesta Schemi Personalizzati</option>
                             </select>
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-xs font-semibold text-slate-700 uppercase mb-2">Messaggio / Dettagli richiesta</label>
-                        <textarea rows="4" required placeholder="Spiega di cosa hai bisogno..." class="w-full px-4 py-3 rounded-xl border border-purple-100 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm bg-purple-50/20"></textarea>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Messaggio per Aurora</label>
+                        <textarea rows="4" required placeholder="Spiegami di quali argomenti hai bisogno..." class="w-full px-4 py-3 rounded-xl border border-purple-100 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm bg-purple-50/30"></textarea>
                     </div>
 
-                    <button type="submit" class="w-full py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-xl shadow-lg shadow-brand-500/20 transition-all flex items-center justify-center gap-2">
-                        <i data-lucide="send" class="w-4 h-4"></i> Invia Messaggio
+                    <button type="submit" class="w-full py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-2xl shadow-lg shadow-brand-500/20 transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="send" class="w-4 h-4"></i> Invia Messaggio ad Aurora
                     </button>
                 </form>
             </div>
@@ -508,30 +616,32 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
             <div class="grid md:grid-cols-4 gap-8">
                 <div class="space-y-3">
-                    <span class="font-heading font-bold text-lg text-white">AFM Notes.</span>
-                    <p class="text-purple-300">Content Commerce per studenti di Economia e Diritto per la scuola superiore.</p>
+                    <span class="font-heading font-extrabold text-lg text-white">Aurora's Notes ✨</span>
+                    <p class="text-purple-300">Schemi, mappe visive ed appunti completi di tutte le materie dell'Istituto Tecnico Economico AFM.</p>
                 </div>
                 <div>
-                    <h5 class="text-white font-semibold mb-3">Materie</h5>
-                    <ul class="space-y-2">
+                    <h5 class="text-white font-bold mb-3">Materie Coperta</h5>
+                    <ul class="space-y-2 text-purple-300">
                         <li><a href="#" onclick="switchTab('shop')" class="hover:text-white">Economia Aziendale</a></li>
-                        <li><a href="#" onclick="switchTab('shop')" class="hover:text-white">Diritto Pubblico & Fiscale</a></li>
-                        <li><a href="#" onclick="switchTab('shop')" class="hover:text-white">Informatica</a></li>
+                        <li><a href="#" onclick="switchTab('shop')" class="hover:text-white">Diritto & Economia Politica</a></li>
+                        <li><a href="#" onclick="switchTab('shop')" class="hover:text-white">Informatica & Database</a></li>
+                        <li><a href="#" onclick="switchTab('shop')" class="hover:text-white">Matematica Finanziaria</a></li>
+                        <li><a href="#" onclick="switchTab('shop')" class="hover:text-white">Inglese Commerciale</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h5 class="text-white font-semibold mb-3">Strumenti Consigliati</h5>
+                    <h5 class="text-white font-bold mb-3">Formato PDF</h5>
                     <p class="text-purple-300 leading-relaxed">
-                        Sito strutturato in ottica WordPress/Gumroad + schemi progettati su Canva.
+                        Tutti i file sono ottimizzati per tablet (GoodNotes, Notability) o stampa cartacea A4.
                     </p>
                 </div>
                 <div>
-                    <h5 class="text-white font-semibold mb-3">Info Legali</h5>
-                    <p class="text-purple-300">Progetto didattico e divulgativo indipendente gestito da studenti.</p>
+                    <h5 class="text-white font-bold mb-3">Info</h5>
+                    <p class="text-purple-300">Progetto di studio e condivisione creato da Aurora per studenti superiori.</p>
                 </div>
             </div>
-            <div class="pt-8 border-t border-brand-800 text-center text-purple-400">
-                &copy; 2026 AFM Notes. Tutti i diritti riservati.
+            <div class="pt-8 border-t border-brand-800 text-center text-purple-400 font-medium">
+                &copy; 2026 Aurora's Notes. Tutti i diritti riservati.
             </div>
         </div>
     </footer>
@@ -542,7 +652,7 @@
             <div class="p-6 border-b border-purple-100 flex items-center justify-between">
                 <div class="flex items-center gap-2">
                     <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-600"></i>
-                    <h3 class="font-heading font-bold text-lg text-slate-900">Il tuo Carrello</h3>
+                    <h3 class="font-heading font-bold text-lg text-slate-900">Il tuo Carrello Appunti</h3>
                 </div>
                 <button onclick="toggleCartModal()" class="p-2 text-slate-400 hover:text-slate-700">
                     <i data-lucide="x" class="w-5 h-5"></i>
@@ -556,13 +666,13 @@
             <div class="p-6 border-t border-purple-100 bg-brand-50/50 space-y-4">
                 <div class="flex justify-between text-base font-bold text-slate-900">
                     <span>Totale:</span>
-                    <span id="cart-total-price" class="text-brand-700">€ 0,00</span>
+                    <span id="cart-total-price" class="text-brand-700 font-extrabold text-xl">€ 0,00</span>
                 </div>
-                <button onclick="processSimulatedCheckout()" id="checkout-btn" class="w-full py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow-lg shadow-brand-600/20 transition-all flex items-center justify-center gap-2 disabled:opacity-50" disabled>
-                    <i data-lucide="lock" class="w-4 h-4"></i>
-                    Acquista & Scarica Subito
+                <button onclick="processSimulatedCheckout()" id="checkout-btn" class="w-full py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-2xl shadow-lg shadow-brand-600/20 transition-all flex items-center justify-center gap-2 disabled:opacity-50" disabled>
+                    <i data-lucide="download" class="w-4 h-4"></i>
+                    Scarica Subito i File PDF
                 </button>
-                <p class="text-[11px] text-center text-slate-500">Consegna automatica immediata via PDF</p>
+                <p class="text-[11px] text-center text-slate-500">Consegna automatica immediata via download</p>
             </div>
         </div>
     </div>
@@ -582,7 +692,7 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // Database dei Prodotti Digitali (Schemi)
+        // Database dei Prodotti Digitali di Aurora (Tutte le Materie AFM)
         const PRODUCTS = [
             {
                 id: 'prod-1',
@@ -590,77 +700,101 @@
                 category: 'eco',
                 categoryName: 'Economia Aziendale',
                 price: 4.99,
-                badge: 'Best Seller',
+                badge: 'Best Seller 🔥',
+                icon: 'calculator',
                 description: 'Tutti gli schemi di 4° anno: Scritture di assestamento, Riparto utile, Stato Patrimoniale e Conto Economico riclassificati.',
                 pages: 18,
-                format: 'PDF HD (Pronto per stampa)',
+                format: 'PDF HD (Stampa / iPad)',
                 previewTopics: [
-                    'Partita Doppia e Mastrini',
-                    'Ammortamenti e Risconti',
-                    'Schema Bilancio C.C. sinteticamente spiegato',
-                    'Indici di Bilancio essenziali'
+                    'Partita Doppia e Mastrini guidati',
+                    'Ammortamenti, Risconti e Ratei',
+                    'Schema Bilancio C.C. con colori di richiamo',
+                    'Indici di Bilancio ed Esercizi svolti passo-passo'
                 ]
             },
             {
                 id: 'prod-2',
-                title: 'Diritto Pubblico e Tributario (4° Anno)',
+                title: 'Diritto Pubblico e Fiscale (4° Anno)',
                 category: 'diritto',
                 categoryName: 'Diritto & Politica',
                 price: 3.99,
-                badge: 'Popolare',
+                badge: 'Molto Richiesto ⭐',
+                icon: 'scale',
                 description: 'Mappe concettuali chiare sugli organi dello Stato, Costituzione e il Sistema Fiscale Italiano (IRPEF, IVA, IRES).',
                 pages: 14,
                 format: 'PDF HD',
                 previewTopics: [
                     'Parlamento, Governo e Presidente della Repubblica',
                     'Principi Fissatori delle Imposte',
-                    'Dichiarazione dei Redditi semplificata'
+                    'Dichiarazione dei Redditi spiegata semplice'
                 ]
             },
             {
                 id: 'prod-3',
-                title: 'Informatica Gestionale & Database SQL',
+                title: 'Informatica Gestionale & Query SQL',
                 category: 'info',
                 categoryName: 'Informatica',
                 price: 3.49,
-                badge: 'Novità',
+                badge: 'Novità 💻',
+                icon: 'database',
                 description: 'Guida rapida ai modelli E-R, tabelle relazionali e comandi SQL fondamentali per le verifiche di laboratorio.',
                 pages: 12,
                 format: 'PDF HD',
                 previewTopics: [
-                    'Progettazione Concettuale e Logica',
-                    'Query SELECT, WHERE, JOIN con esempi',
-                    'Esercizi di laboratorio risolti'
+                    'Progettazione Concettuale e Logica con diagrammi',
+                    'Query SELECT, WHERE, JOIN con soluzioni',
+                    'Esercizi tipo prova pratica'
                 ]
             },
             {
                 id: 'prod-4',
-                title: 'Kit Metodo di Studio e Sintesi Visiva AFM',
-                category: 'metodo',
-                categoryName: 'Metodo di Studio',
-                price: 2.99,
-                badge: 'Guida',
-                description: 'Guida step-by-step per prendere appunti veloci durante le spiegazioni di Economia e schematizzare capitoli di 40 pagine.',
-                pages: 10,
+                title: 'Matematica Finanziaria: Formule e Mappe',
+                category: 'matematica',
+                categoryName: 'Matematica Finanziaria',
+                price: 3.99,
+                badge: 'Voto 9+ 📈',
+                icon: 'line-chart',
+                description: 'Tutte le formule di interesse semplice, composto, ammortamento mutui e rendite spiegate con esempi visivi.',
+                pages: 15,
                 format: 'PDF HD',
                 previewTopics: [
-                    'Codici colore per la memoria visiva',
-                    'Come preparare un\'orale di Diritto senza memoria meccanica'
+                    'Formulario Montante e Valore Attuale',
+                    'Piani di Ammortamento Francese e Italiano',
+                    'Trucchi per non sbagliare i calcoli nei compiti'
                 ]
             },
             {
                 id: 'prod-5',
-                title: 'Economia Politica: Mercati e Keynes',
-                category: 'diritto',
-                categoryName: 'Diritto & Politica',
-                price: 3.49,
-                badge: '',
-                description: 'Schemi sulla domanda/offerta, forme di mercato (Monopolio, Concorrenza) e teoria macroeconomica di Keynes.',
+                title: 'Inglese Commerciale (Business English)',
+                category: 'inglese',
+                categoryName: 'Inglese Commerciale',
+                price: 3.29,
+                badge: 'Pratico 🇬🇧',
+                icon: 'languages',
+                description: 'Glossario dei termini aziendali, modelli di Business Letter, email formali e presentazioni aziendali.',
                 pages: 11,
                 format: 'PDF HD',
                 previewTopics: [
-                    'Grafici di equilibrio spiegati',
-                    'Inflazione e Politica Monetaria'
+                    'Commercial Letters (Inquiries, Orders, Complaints)',
+                    'Vocabulary per Marketing e Finance',
+                    'Frasi pronte per le interrogazioni'
+                ]
+            },
+            {
+                id: 'prod-6',
+                title: 'Mega Kit AFM All-In-One (Tutte le Materie)',
+                category: 'eco',
+                categoryName: 'Pacchetto Completo',
+                price: 8.99,
+                badge: 'SUPER OFFERTA 👑',
+                icon: 'sparkles',
+                description: 'Tutti gli schemi di Aurora per il 4° e 5° anno AFM raggruppati in un unico mega file PDF.',
+                pages: 85,
+                format: 'PDF HD Completo',
+                previewTopics: [
+                    'Economia Aziendale + Diritto',
+                    'Informatica SQL + Matematica Finanziaria',
+                    'Inglese Commerciale + Metodo di Studio'
                 ]
             }
         ];
@@ -717,28 +851,36 @@
 
         function createProductCardHTML(product) {
             return `
-                <div class="bg-white rounded-2xl border border-purple-100 p-6 flex flex-col justify-between hover:border-brand-300 hover:shadow-lg hover:shadow-brand-500/5 transition-all group">
+                <div class="bg-white rounded-3xl border border-purple-100 p-6 flex flex-col justify-between hover:border-brand-300 hover:shadow-xl hover:shadow-brand-500/10 transition-all group relative overflow-hidden">
+                    
+                    <!-- Top Sticker / Card Header Visual -->
                     <div class="space-y-3">
-                        <div class="flex items-center justify-between">
-                            <span class="px-2.5 py-1 rounded-md bg-brand-50 text-brand-700 text-xs font-semibold border border-purple-100">${product.categoryName}</span>
-                            ${product.badge ? `<span class="px-2.5 py-1 rounded-md bg-purple-100 text-brand-800 text-xs font-bold">${product.badge}</span>` : ''}
+                        <div class="h-28 rounded-2xl bg-gradient-to-tr from-brand-100 via-purple-50 to-brand-50 border border-purple-100 p-4 flex items-center justify-between relative overflow-hidden">
+                            <div class="w-12 h-12 rounded-xl bg-brand-600 text-white flex items-center justify-center shadow-md">
+                                <i data-lucide="${product.icon}" class="w-6 h-6"></i>
+                            </div>
+                            <span class="sticker sticker-purple self-start">${product.badge || product.categoryName}</span>
                         </div>
-                        <h3 class="font-heading font-bold text-lg text-slate-900 group-hover:text-brand-600 transition-colors">${product.title}</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed">${product.description}</p>
+
+                        <div class="space-y-1">
+                            <span class="text-[11px] font-bold text-brand-600 uppercase tracking-wider">${product.categoryName}</span>
+                            <h3 class="font-heading font-extrabold text-lg text-slate-900 group-hover:text-brand-600 transition-colors">${product.title}</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">${product.description}</p>
+                        </div>
                     </div>
 
                     <div class="pt-6 border-t border-purple-50 mt-6 space-y-4">
                         <div class="flex items-center justify-between">
                             <div>
-                                <span class="text-xs text-slate-400 block">Formato PDF • ${product.pages} pag.</span>
-                                <span class="font-heading font-extrabold text-xl text-brand-900">€ ${product.price.toFixed(2).replace('.', ',')}</span>
+                                <span class="text-[11px] text-slate-400 font-medium block">PDF • ${product.pages} pag.</span>
+                                <span class="font-heading font-black text-2xl text-brand-900">€ ${product.price.toFixed(2).replace('.', ',')}</span>
                             </div>
-                            <button onclick="openProductModal('${product.id}')" class="text-xs text-brand-600 font-semibold hover:underline">
-                                Anteprima schemi
+                            <button onclick="openProductModal('${product.id}')" class="text-xs text-brand-600 font-bold hover:underline">
+                                Anteprima
                             </button>
                         </div>
-                        <button onclick="addToCart('${product.id}')" class="w-full py-3 bg-brand-700 hover:bg-brand-800 text-white text-xs font-bold rounded-xl transition-colors flex items-center justify-center gap-2 shadow-sm">
-                            <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
+                        <button onclick="addToCart('${product.id}')" class="w-full py-3.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold rounded-2xl transition-colors flex items-center justify-center gap-2 shadow-md shadow-brand-500/10">
+                            <i data-lucide="shopping-cart" class="w-4 h-4"></i>
                             Aggiungi al Carrello
                         </button>
                     </div>
@@ -799,8 +941,8 @@
                 itemsContainer.innerHTML = `
                     <div class="text-center py-12 space-y-3">
                         <i data-lucide="shopping-bag" class="w-12 h-12 text-purple-200 mx-auto"></i>
-                        <p class="text-sm font-semibold text-slate-600">Il tuo carrello è vuoto</p>
-                        <p class="text-xs text-slate-400">Aggiungi qualche pacchetto di schemi per iniziare.</p>
+                        <p class="text-sm font-bold text-slate-600">Il carrello di Aurora è vuoto</p>
+                        <p class="text-xs text-slate-400">Scegli qualche scheda o pacchetto per iniziare!</p>
                     </div>
                 `;
             } else {
@@ -808,10 +950,10 @@
                 itemsContainer.innerHTML = cart.map(item => {
                     total += item.price;
                     return `
-                        <div class="flex items-center justify-between p-3.5 bg-brand-50/50 rounded-xl border border-purple-100">
-                            <div class="space-y-1 max-w-[220px]">
+                        <div class="flex items-center justify-between p-3.5 bg-brand-50/60 rounded-2xl border border-purple-100">
+                            <div class="space-y-0.5 max-w-[220px]">
                                 <h4 class="text-xs font-bold text-slate-900 truncate">${item.title}</h4>
-                                <span class="text-[11px] text-brand-600 font-semibold">€ ${item.price.toFixed(2).replace('.', ',')}</span>
+                                <span class="text-[11px] text-brand-700 font-bold">€ ${item.price.toFixed(2).replace('.', ',')}</span>
                             </div>
                             <button onclick="removeFromCart('${item.id}')" class="text-slate-400 hover:text-rose-500 p-1">
                                 <i data-lucide="trash-2" class="w-4 h-4"></i>
@@ -840,23 +982,23 @@
             const content = document.getElementById('product-modal-content');
             content.innerHTML = `
                 <div class="space-y-4">
-                    <span class="px-2.5 py-1 rounded-md bg-brand-50 text-brand-700 text-xs font-bold uppercase border border-purple-100">${product.categoryName}</span>
-                    <h2 class="font-heading text-2xl font-bold text-slate-900">${product.title}</h2>
+                    <span class="sticker sticker-purple">${product.categoryName}</span>
+                    <h2 class="font-heading text-2xl font-black text-slate-900">${product.title}</h2>
                     <p class="text-slate-600 text-xs leading-relaxed">${product.description}</p>
                     
-                    <div class="bg-brand-50/50 p-4 rounded-xl space-y-2 border border-purple-100">
-                        <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider">Cosa troverai nel file PDF:</h4>
-                        <ul class="space-y-1.5 text-xs text-slate-600">
-                            ${product.previewTopics.map(t => `<li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-600"></i> ${t}</li>`).join('')}
+                    <div class="bg-brand-50/70 p-4 rounded-2xl space-y-2 border border-purple-100">
+                        <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider">Mappe ed Argomenti compresi:</h4>
+                        <ul class="space-y-2 text-xs text-slate-700 font-medium">
+                            ${product.previewTopics.map(t => `<li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-600 flex-shrink-0"></i> ${t}</li>`).join('')}
                         </ul>
                     </div>
 
                     <div class="flex items-center justify-between pt-4 border-t border-purple-100">
                         <div>
-                            <span class="text-xs text-slate-400 block">Prezzo</span>
-                            <span class="font-heading font-extrabold text-2xl text-brand-900">€ ${product.price.toFixed(2).replace('.', ',')}</span>
+                            <span class="text-xs text-slate-400 block font-medium">Prezzo digitale</span>
+                            <span class="font-heading font-black text-2xl text-brand-900">€ ${product.price.toFixed(2).replace('.', ',')}</span>
                         </div>
-                        <button onclick="addToCart('${product.id}'); closeProductModal();" class="px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center gap-2">
+                        <button onclick="addToCart('${product.id}'); closeProductModal();" class="px-6 py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs rounded-2xl shadow-md transition-all flex items-center gap-2">
                             <i data-lucide="shopping-cart" class="w-4 h-4"></i> Aggiungi al Carrello
                         </button>
                     </div>
@@ -875,9 +1017,8 @@
         function processSimulatedCheckout() {
             if(cart.length === 0) return;
 
-            // Simulated Download Trigger
             const fileNames = cart.map(c => c.title).join('\n• ');
-            alert(`🎉 ACQUISTO COMPLETATO CON SUCCESSO!\n\nGrazie per aver sostenuto il progetto AFM Notes.\nI seguenti file PDF sono stati inviati ed è stato avviato il download automatico:\n\n• ${fileNames}`);
+            alert(`🎉 ACQUISTO COMPLETATO CON SUCCESSO!\n\nGrazie per aver scelto Aurora's Notes!\nI file PDF delle seguenti materie sono stati scaricati:\n\n• ${fileNames}`);
 
             cart = [];
             updateCartUI();
@@ -911,7 +1052,7 @@
         // Form Submission
         function handleContactSubmit(e) {
             e.preventDefault();
-            alert('Grazie per il tuo messaggio! Ti risponderò via email entro 24 ore.');
+            alert('Messaggio inviato ad Aurora! Ti risponderò via email il prima possibile.');
             e.target.reset();
         }
     </script>
